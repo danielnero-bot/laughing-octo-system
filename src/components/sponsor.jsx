@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import KeepingItRealFoundation from "../assets/Keeping-It-Real-Foundation-scaled-e1684861858536-1024x471-removebg-preview.png";
 import CESA from "../assets/CESA-LOGO-removebg-preview.png";
+import Ntel from "../assets/Ntel_logo-removebg-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,8 +25,8 @@ const sponsors = [
     src: "https://cdn.prod.website-files.com/66914dea96fe01e4984af914/66914dea96fe01e4984af99c_Techrity.png",
   },
   {
-    name: "Partner",
-    src: "https://youngtechies.africa/wp-content/uploads/2023/05/download-1.png",
+    name: "Ntel ",
+    src: Ntel,
   },
   {
     name: "CESA",

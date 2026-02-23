@@ -199,7 +199,7 @@ export default function AboutFestival() {
             </div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-4">
               Built for{" "}
-              <span className="bg-gradient-to-r from-accent-yellow via-accent-pink to-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
                 Every Explorer
               </span>
             </h2>

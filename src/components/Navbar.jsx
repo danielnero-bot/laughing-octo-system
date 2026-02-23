@@ -207,7 +207,7 @@ const CardNav = ({
               key={`${item.label}-${idx}`}
               className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%]"
               ref={setCardRef(idx)}
-              style={{ backgroundColor: item.bgColor, color: item.textColor }}
+              style={{ backgroundColor: item.bgColor, color: 'white' }}
             >
               <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                 {item.label}

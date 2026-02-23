@@ -53,7 +53,7 @@ export default function RegisterModal({ isOpen, onClose }) {
     >
       <div
         ref={contentRef}
-        className="relative w-full sm:max-w-lg md:max-w-2xl bg-tech-dark/95 backdrop-blur-2xl border border-white/10 rounded-t-[28px] sm:rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.7)] overflow-hidden max-h-[92dvh] overflow-y-auto"
+        className="relative w-full sm:max-w-lg md:max-w-2xl bg-tech-dark/95 backdrop-blur-2xl border border-white/10 rounded-t-[28px] sm:rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.7)] overflow-y-auto sm:overflow-hidden max-h-[92dvh] sm:max-h-none"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Decorative glows */}

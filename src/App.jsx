@@ -5,6 +5,7 @@ import Hero from "./components/Hero"
 import AboutFestival from "./components/aboutUs"
 import RegisterModal from "./components/register"
 import Sponsor from "./components/sponsor"
+import WhyCome from "./components/whycome"
 
 export default function App() {
   const navItems = [
@@ -64,6 +65,7 @@ export default function App() {
         <Route path="/" element={<Hero onRegisterClick={() => setIsRegisterOpen(true)} />} />
       </Routes>
       <AboutFestival/>
+      <WhyCome onRegisterClick={() => setIsRegisterOpen(true)} />
       <RegisterModal 
         isOpen={isRegisterOpen} 
         onClose={() => setIsRegisterOpen(false)} 
