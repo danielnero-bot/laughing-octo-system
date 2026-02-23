@@ -3,12 +3,17 @@ import { IoClose } from "react-icons/io5";
 import gsap from "gsap";
 
 export default function RegisterModal({ isOpen, onClose }) {
-  const [shouldRender, setShouldRender] = useState(isOpen);
+  // Use a ref to track mount/unmount so we don't call setState inside an effect
+  const [shouldRender, setShouldRender] = useState(false);
   const overlayRef = useRef(null);
   const contentRef = useRef(null);
 
+  // Mount when isOpen flips true; unmount is handled by the animation onComplete
   useEffect(() => {
-    if (isOpen) setShouldRender(true);
+    if (isOpen && !shouldRender) {
+      setShouldRender(true);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   useEffect(() => {

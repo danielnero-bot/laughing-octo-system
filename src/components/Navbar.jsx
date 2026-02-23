@@ -169,7 +169,7 @@ const CardNav = ({
             role="button"
             aria-label={isExpanded ? 'Close menu' : 'Open menu'}
             tabIndex={0}
-            style={{ color: menuColor || '#000' }}
+            style={{ color: 'white' }}
           >
             <div
               className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
@@ -190,7 +190,7 @@ const CardNav = ({
           <button
             type="button"
             className="card-nav-cta-button inline-flex border-0 rounded-xl px-4 md:px-5 items-center h-[44px] md:h-[40px] font-bold text-sm md:text-base cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg order-3 md:order-none"
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            style={{ backgroundColor: buttonBgColor, color: 'white' }}
           >
             Join Now
           </button>

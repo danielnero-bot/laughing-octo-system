@@ -49,32 +49,59 @@ const categories = [
 
 export default function AboutFestival() {
   const sectionRef = useRef(null);
+  const videoRef = useRef(null);
+  const catHeadRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".about-animate", {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
+
+      // ── ABOUT: badge + heading reveal ──
+      gsap.from(".about-badge", {
+        y: 20, opacity: 0, duration: 0.7, ease: "power3.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 82%" },
       });
 
-      gsap.from(".cat-card", {
-        y: 80,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: ".categories-grid",
-          start: "top 85%",
-        },
+      gsap.from(".about-heading", {
+        y: 60, opacity: 0, duration: 1.1, ease: "expo.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
       });
+
+      gsap.from(".about-body", {
+        y: 40, opacity: 0, duration: 0.9, stagger: 0.15, ease: "power3.out",
+        scrollTrigger: { trigger: ".about-body", start: "top 85%" },
+      });
+
+      // ── STAT CARDS staggered slide-up ──
+      gsap.from(".stat-card", {
+        y: 50, opacity: 0, scale: 0.95, duration: 0.7,
+        stagger: 0.1, ease: "back.out(1.4)",
+        scrollTrigger: { trigger: ".stat-card", start: "top 88%" },
+      });
+
+      // ── VIDEO embed slide in from right ──
+      gsap.fromTo(videoRef.current,
+        { x: 80, opacity: 0 },
+        {
+          x: 0, opacity: 1, duration: 1.2, ease: "expo.out",
+          scrollTrigger: { trigger: videoRef.current, start: "top 82%" },
+        }
+      );
+
+      // ── CATEGORIES heading ──
+      gsap.fromTo(catHeadRef.current,
+        { y: 60, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, ease: "expo.out",
+          scrollTrigger: { trigger: catHeadRef.current, start: "top 85%" },
+        }
+      );
+
+      // ── CATEGORY CARDS staggered from bottom ──
+      gsap.from(".cat-card", {
+        y: 90, opacity: 0, duration: 0.85, stagger: 0.1, ease: "expo.out",
+        scrollTrigger: { trigger: ".categories-grid", start: "top 85%" },
+      });
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -97,12 +124,12 @@ export default function AboutFestival() {
 
           {/* LEFT CONTENT */}
           <div>
-            <div className="about-animate inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+            <div className="about-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-primary mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               About the Festival
             </div>
 
-            <h2 className="about-animate text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
+            <h2 className="about-heading text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
               Empowering The{" "}
               <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
                 Next Generation
@@ -110,20 +137,20 @@ export default function AboutFestival() {
               of Innovators
             </h2>
 
-            <p className="about-animate text-lg text-slate-400 mb-6 leading-relaxed">
+            <p className="about-body text-lg text-slate-400 mb-6 leading-relaxed">
               Young Techies Festival is an annual one-day experience designed to expose,
               inspire and equip young minds{" "}
               <span className="text-white font-medium">(ages 8–17)</span> with future-ready
               technology skills.
             </p>
 
-            <p className="about-animate text-lg text-slate-400 mb-10 leading-relaxed">
+            <p className="about-body text-lg text-slate-400 mb-10 leading-relaxed">
               From hands-on Robotics and IoT to immersive Virtual & Augmented Reality,
               participants gain first-hand experience with real tools shaping the future
               workforce.
             </p>
 
-            <div className="about-animate grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               {[
                 { value: "500+", label: "Young Innovators" },
                 { value: "1 Day", label: "Immersive Experience" },
@@ -132,7 +159,7 @@ export default function AboutFestival() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="glass-card rounded-2xl p-5"
+                  className="stat-card glass-card rounded-2xl p-5"
                 >
                   <h3 className="text-3xl font-black text-primary mb-1">{stat.value}</h3>
                   <p className="text-sm text-slate-400">{stat.label}</p>
@@ -142,7 +169,7 @@ export default function AboutFestival() {
           </div>
 
           {/* RIGHT VISUAL — YouTube Embed */}
-          <div className="about-animate relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
+          <div ref={videoRef} className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/kUT6PHYWsrk?si=53VO4DdYJQFVMC8F"
@@ -165,7 +192,7 @@ export default function AboutFestival() {
 
         <div className="relative max-w-7xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-20">
+          <div ref={catHeadRef} className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-accent-yellow mb-6">
               <span className="w-2 h-2 rounded-full bg-accent-yellow animate-pulse" />
               What's Inside
