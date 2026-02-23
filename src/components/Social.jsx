@@ -36,7 +36,7 @@ const socials = [
   {
     platform: "X / Twitter",
     handle: "@YoungTechiesAfrica",
-    href: "https://www.youtube.com/@codeambassadors",
+    href: "https://x.com/codeambassadors",
     Icon: FaXTwitter,
     color: "#fff",
     glow: "rgba(255,255,255,0.12)",

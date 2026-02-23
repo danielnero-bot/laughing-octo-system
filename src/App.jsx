@@ -77,7 +77,6 @@ export default function App() {
         isOpen={isRegisterOpen} 
         onClose={() => setIsRegisterOpen(false)} 
       />
-      <Sponsor/>
     </div>
   )
 }
