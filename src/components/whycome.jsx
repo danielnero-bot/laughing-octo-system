@@ -60,45 +60,50 @@ export default function WhyCome({ onRegisterClick }) {
   useEffect(() => {
     const ctx = gsap.context(() => {
 
-      // Badge
-      gsap.from(badgeRef.current, {
-        y: 20, opacity: 0, duration: 0.7, ease: "power3.out",
-        scrollTrigger: { trigger: badgeRef.current, start: "top 88%" },
+      const ST = (trigger, extraStart = "top 90%") => ({
+        trigger,
+        start: extraStart,
+        once: true,
       });
+
+      // Badge
+      gsap.fromTo(badgeRef.current,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power3.out", scrollTrigger: ST(badgeRef.current) }
+      );
 
       // Heading
-      gsap.from(headingRef.current, {
-        y: 60, opacity: 0, duration: 1.1, ease: "expo.out",
-        scrollTrigger: { trigger: headingRef.current, start: "top 85%" },
-      });
+      gsap.fromTo(headingRef.current,
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.1, ease: "expo.out", scrollTrigger: ST(headingRef.current) }
+      );
 
       // Sub-text
-      gsap.from(subRef.current, {
-        y: 30, opacity: 0, duration: 0.9, ease: "power3.out",
-        scrollTrigger: { trigger: subRef.current, start: "top 88%" },
-      });
+      gsap.fromTo(subRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", scrollTrigger: ST(subRef.current) }
+      );
 
-      // Reason cards staggered
-      gsap.from(".wc-card", {
-        y: 80, opacity: 0, scale: 0.96, duration: 0.85, stagger: 0.1,
-        ease: "expo.out",
-        scrollTrigger: { trigger: ".wc-grid", start: "top 85%" },
-      });
-
-      // Pull-quote clip reveal
-      gsap.fromTo(quoteRef.current,
-        { clipPath: "inset(0 100% 0 0)", opacity: 0 },
+      // Reason cards — use refs target on the section itself so trigger is reliable
+      gsap.fromTo(".wc-card",
+        { y: 70, opacity: 0, scale: 0.95 },
         {
-          clipPath: "inset(0 0% 0 0)", opacity: 1, duration: 1.4, ease: "expo.out",
-          scrollTrigger: { trigger: quoteRef.current, start: "top 82%" },
+          y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.08, ease: "expo.out",
+          scrollTrigger: { trigger: ".wc-grid", start: "top 92%", once: true },
         }
       );
 
+      // Pull-quote fade (removed clipPath — not needed, fade+slide is more reliable)
+      gsap.fromTo(quoteRef.current,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", scrollTrigger: ST(quoteRef.current) }
+      );
+
       // CTA strip
-      gsap.from(ctaRef.current, {
-        y: 40, opacity: 0, duration: 1, ease: "back.out(1.4)",
-        scrollTrigger: { trigger: ctaRef.current, start: "top 88%" },
-      });
+      gsap.fromTo(ctaRef.current,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "back.out(1.4)", scrollTrigger: ST(ctaRef.current) }
+      );
 
     }, sectionRef);
 
