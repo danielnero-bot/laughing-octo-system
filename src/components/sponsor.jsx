@@ -27,6 +27,10 @@ const sponsors = [
     name: "Market Square",
     src: "https://www.marketsquareng.com/img/MSlogowhite.e9a4d282.png",
   },
+  {
+    name: "Rio Foundation",
+    src: "https://riofoundation.org/wp-content/uploads/2023/10/logo-rio-trans.webp",
+  }
 ];
 
 // Duplicate the list for seamless infinite scroll
