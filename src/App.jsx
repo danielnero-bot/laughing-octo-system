@@ -6,6 +6,9 @@ import AboutFestival from "./components/aboutUs"
 import RegisterModal from "./components/register"
 import Sponsor from "./components/sponsor"
 import WhyCome from "./components/whycome"
+import Gallery from "./components/Gallery"
+import TechTalks from "./components/TechTalks"
+import Social from "./components/Social"
 
 export default function App() {
   const navItems = [
@@ -66,6 +69,10 @@ export default function App() {
       </Routes>
       <AboutFestival/>
       <WhyCome onRegisterClick={() => setIsRegisterOpen(true)} />
+      <Gallery />
+      <TechTalks />
+      <Social />
+      <Sponsor/>
       <RegisterModal 
         isOpen={isRegisterOpen} 
         onClose={() => setIsRegisterOpen(false)} 

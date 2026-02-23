@@ -233,7 +233,7 @@ export default function WhyCome({ onRegisterClick }) {
             onClick={onRegisterClick}
             className="group relative flex-shrink-0 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-black rounded-2xl shadow-2xl shadow-primary/25 hover:shadow-primary/50 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden text-sm sm:text-base uppercase tracking-wide"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative z-10">Register Now — It's Free</span>
           </button>
         </div>

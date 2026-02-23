@@ -78,7 +78,7 @@ export default function RegisterModal({ isOpen, onClose }) {
           <div className="mb-7 sm:mb-10">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black bg-gradient-to-br from-white via-white to-white/40 bg-clip-text text-transparent mb-3 leading-tight">
               Ready for the{" "}
-              <span className="bg-gradient-to-r from-primary via-accent-pink to-accent-yellow bg-clip-text">
+              <span className="bg-gradient-to-r from-primary to-accent-pink  bg-clip-text">
                 Next Wave?
               </span>
             </h2>
