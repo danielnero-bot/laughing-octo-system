@@ -132,9 +132,9 @@ export default function Hero({ onRegisterClick }) {
               July 11· 2026
             </div>
 
-            <h1 className="text-6xl sm:text-4xl md:text-6xl font-black mb-5 leading-tight tracking-tighter">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-5 leading-tight tracking-tighter">
               <div ref={title1Ref} className="text-(--text-main) transition-colors duration-500">YOUNG TECHIES<br className="hidden sm:block" /> FESTIVAL</div>
-              <div ref={title2Ref} className="text-primary italic text-base sm:text-lg md:text-xl mt-2 font-medium">
+              <div ref={title2Ref} className="text-primary italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
                 A bold celebration where young innovators shape the future.
               </div>
             </h1>
