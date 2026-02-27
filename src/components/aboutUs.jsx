@@ -95,7 +95,7 @@ export default function AboutFestival() {
   }, []);
 
   return (
-    <div className="bg-[var(--bg-main)] transition-colors duration-500">
+    <div className="bg-(--bg-main) transition-colors duration-500">
       <section ref={sectionRef} className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
         <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 text-center lg:text-left">
@@ -103,17 +103,17 @@ export default function AboutFestival() {
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               About the Festival
             </div>
-            <h2 className="about-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-8 text-[var(--text-main)] transition-colors duration-500">
+            <h2 className="about-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-8 text-(--text-main) transition-colors duration-500">
               The Hub of <br />
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Young Innovation.
               </span>
             </h2>
             <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
-              <p className="about-body text-lg text-[var(--text-muted)] leading-relaxed font-light transition-colors duration-500">
-                Now in its 4th year, the <span className="text-[var(--text-main)] font-bold transition-colors">Young Techies Festival</span> is West Africa’s premier stage for the next generation of builders.
+              <p className="about-body text-lg text-(--text-muted) leading-relaxed font-light transition-colors duration-500">
+                Now in its 4th year, the <span className="text-(--text-main) font-bold transition-colors">Young Techies Festival</span> is West Africa’s premier stage for the next generation of builders.
               </p>
-              <p className="about-body text-lg text-[var(--text-muted)] leading-relaxed font-light transition-colors duration-500">
+              <p className="about-body text-lg text-(--text-muted) leading-relaxed font-light transition-colors duration-500">
                 From <span className="text-secondary font-semibold">Web3 to Robotics</span>, we bring the world’s most exciting tech directly to the curious minds of today.
               </p>
             </div>
@@ -124,48 +124,48 @@ export default function AboutFestival() {
                 { label: "Speakers", val: "15+" },
                 { label: "Prizes", val: "₦2.5M" },
               ].map((s, i) => (
-                <div key={i} className="stat-card p-5 sm:p-6 rounded-3xl bg-[var(--stat-card-bg)] border border-[var(--stat-card-border)] shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
+                <div key={i} className="stat-card p-5 sm:p-6 rounded-3xl bg-(--stat-card-bg) border border-(--stat-card-border) shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
                   <div className="text-2xl sm:text-3xl font-black text-primary mb-1">{s.val}</div>
-                  <div className="text-[10px] sm:text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold transition-colors duration-500">{s.label}</div>
+                  <div className="text-[10px] sm:text-xs uppercase tracking-widest text-(--text-muted) font-bold transition-colors duration-500">{s.label}</div>
                 </div>
               ))}
             </div>
           </div>
           <div ref={videoRef} className="flex-1 w-full lg:w-auto relative px-2">
-            <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-2xl ring-8 ring-[var(--stat-card-border)] transition-all duration-500">
+            <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-2xl ring-8 ring-(--stat-card-border) transition-all duration-500">
               <iframe className="w-full h-full" src="https://www.youtube.com/embed/kUT6PHYWsrk" title="YTF Highlights" frameBorder="0" allowFullScreen />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative py-20 sm:py-28 px-4 sm:px-6 bg-[var(--section-alt-bg)] overflow-hidden border-t border-[var(--stat-card-border)] transition-colors duration-500">
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 bg-(--section-alt-bg) overflow-hidden border-t border-(--stat-card-border) transition-colors duration-500">
         <div className="relative max-w-7xl mx-auto">
           <div ref={catHeadRef} className="text-center mb-16 sm:mb-20">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--bg-main)] border border-[var(--stat-card-border)] text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] mb-5 shadow-sm transition-colors">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--bg-main) border border-(--stat-card-border) text-[10px] font-bold uppercase tracking-widest text-(--text-muted) mb-5 shadow-sm transition-colors">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               What's Inside
             </div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4 text-[var(--text-main)] transition-colors duration-500">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4 text-(--text-main) transition-colors duration-500">
               Built for <br className="sm:hidden" />
-              <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">Every Explorer</span>
+              <span className="bg-linear-to-r from-primary to-accent-pink bg-clip-text text-transparent">Every Explorer</span>
             </h2>
-            <p className="text-[var(--text-muted)] text-lg max-w-xl mx-auto font-light leading-relaxed transition-colors duration-500">
+            <p className="text-(--text-muted) text-lg max-w-xl mx-auto font-light leading-relaxed transition-colors duration-500">
               Four worlds of discovery — pick your passion and dive into the future.
             </p>
           </div>
           <div className="categories-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {categories.map((cat) => (
-              <div key={cat.tag} className="cat-card group relative flex flex-col gap-6 p-8 rounded-[2.5rem] bg-[var(--bg-main)] border border-[var(--stat-card-border)] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 overflow-hidden">
+              <div key={cat.tag} className="cat-card group relative flex flex-col gap-6 p-8 rounded-[2.5rem] bg-(--bg-main) border border-(--stat-card-border) transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 overflow-hidden">
                 <div className="flex items-center justify-between">
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-sm bg-slate-500/5 dark:bg-white/5" style={{ borderColor: `${cat.color}20`, borderWidth: '1px' }}>{cat.icon}</div>
                   <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: `${cat.color}15`, color: cat.color, border: `1px solid ${cat.color}30` }}>{cat.tag}</span>
                 </div>
-                <h3 className="text-xl font-bold text-[var(--text-main)] group-hover:text-primary transition-colors duration-500">{cat.title}</h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed font-light transition-colors duration-500">{cat.description}</p>
+                <h3 className="text-xl font-bold text-(--text-main) group-hover:text-primary transition-colors duration-500">{cat.title}</h3>
+                <p className="text-(--text-muted) text-sm leading-relaxed font-light transition-colors duration-500">{cat.description}</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {cat.items.map((item) => (
-                    <span key={item} className="text-[11px] font-semibold px-3 py-1.5 rounded-xl bg-[var(--section-alt-bg)] border border-[var(--stat-card-border)] text-[var(--text-muted)] transition-colors duration-500">{item}</span>
+                    <span key={item} className="text-[11px] font-semibold px-3 py-1.5 rounded-xl bg-(--section-alt-bg) border border-(--stat-card-border) text-(--text-muted) transition-colors duration-500">{item}</span>
                   ))}
                 </div>
               </div>

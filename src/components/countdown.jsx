@@ -4,18 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function TimeBox({ value, label, onRef }) {
-  return (
-    <div className="flex flex-col items-center bg-[var(--bg-main)] border border-[var(--stat-card-border)] rounded-xl px-3 py-3 sm:px-5 sm:py-4 min-w-[58px] sm:min-w-[78px] shadow-sm transition-colors duration-500">
-      <span ref={onRef} className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[var(--text-main)] leading-none tabular-nums transition-colors duration-500">
-        {String(value).padStart(2, "0")}
-      </span>
-      <span className="text-[9px] sm:text-[10px] tracking-widest text-[var(--text-muted)] uppercase mt-1 font-bold transition-colors duration-500">
-        {label}
-      </span>
-    </div>
-  );
-}
+
 
 export default function Countdown({ targetDate }) {
   const defaultTarget = (() => {
@@ -46,12 +35,25 @@ export default function Countdown({ targetDate }) {
     return () => clearInterval(timer);
   }, [calculateTimeLeft]);
 
+  const prevTimeLeft = useRef(timeLeft);
+
   useEffect(() => {
     if (!timeLeft) return;
-    Object.values(numberRefs.current).forEach((el) => {
-      if (!el) return;
-      gsap.fromTo(el, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" });
+    
+    const changes = {
+      Days:  timeLeft.days    !== prevTimeLeft.current?.days,
+      Hours: timeLeft.hours   !== prevTimeLeft.current?.hours,
+      Mins:  timeLeft.minutes !== prevTimeLeft.current?.minutes,
+      Secs:  timeLeft.seconds !== prevTimeLeft.current?.seconds,
+    };
+
+    Object.entries(numberRefs.current).forEach(([key, el]) => {
+      if (!el || !changes[key]) return;
+      // Small animation for the changing number
+      gsap.fromTo(el, { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" });
     });
+
+    prevTimeLeft.current = timeLeft;
   }, [timeLeft]);
 
   useEffect(() => {
@@ -63,21 +65,38 @@ export default function Countdown({ targetDate }) {
 
   if (!timeLeft) {
     return (
-      <div className="text-center text-[var(--text-main)] font-bold text-base sm:text-lg transition-colors duration-500">
+      <div className="text-center text-(--text-main) font-bold text-base sm:text-lg transition-colors duration-500">
         🎉 The Festival Has Started!
       </div>
     );
   }
 
   return (
-    <div ref={wrapperRef} role="timer" aria-live="polite" aria-label="Festival countdown" className="flex gap-1.5 sm:gap-3 justify-center items-center flex-wrap">
-      <TimeBox value={timeLeft.days}    label="Days"  onRef={(el) => { numberRefs.current["Days"]    = el; }} />
-      <div className="w-px h-6 sm:h-8 bg-[var(--stat-card-border)] transition-colors duration-500" />
-      <TimeBox value={timeLeft.hours}   label="Hours" onRef={(el) => { numberRefs.current["Hours"]   = el; }} />
-      <div className="w-px h-6 sm:h-8 bg-[var(--stat-card-border)] transition-colors duration-500" />
-      <TimeBox value={timeLeft.minutes} label="Mins"  onRef={(el) => { numberRefs.current["Mins"]    = el; }} />
-      <div className="w-px h-6 sm:h-8 bg-[var(--stat-card-border)] transition-colors duration-500" />
-      <TimeBox value={timeLeft.seconds} label="Secs"  onRef={(el) => { numberRefs.current["Secs"]    = el; }} />
+    <div ref={wrapperRef} role="timer" aria-live="polite" aria-label="Festival Countdown" className="grid grid-flow-col gap-3 sm:gap-5 text-center auto-cols-max justify-center">
+      <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
+        <span className="countdown font-mono text-3xl sm:text-5xl">
+          <span ref={(el) => { numberRefs.current["Days"] = el; }} style={{ "--value": timeLeft.days }} aria-live="polite" aria-label={`${timeLeft.days} days`}>{timeLeft.days}</span>
+        </span>
+        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">days</span>
+      </div>
+      <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
+        <span className="countdown font-mono text-3xl sm:text-5xl">
+          <span ref={(el) => { numberRefs.current["Hours"] = el; }} style={{ "--value": timeLeft.hours }} aria-live="polite" aria-label={`${timeLeft.hours} hours`}>{timeLeft.hours}</span>
+        </span>
+        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">hours</span>
+      </div>
+      <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
+        <span className="countdown font-mono text-3xl sm:text-5xl">
+          <span ref={(el) => { numberRefs.current["Mins"] = el; }} style={{ "--value": timeLeft.minutes }} aria-live="polite" aria-label={`${timeLeft.minutes} minutes`}>{timeLeft.minutes}</span>
+        </span>
+        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">min</span>
+      </div>
+      <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
+        <span className="countdown font-mono text-3xl sm:text-5xl">
+          <span ref={(el) => { numberRefs.current["Secs"] = el; }} style={{ "--value": timeLeft.seconds }} aria-live="polite" aria-label={`${timeLeft.seconds} seconds`}>{timeLeft.seconds}</span>
+        </span>
+        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">sec</span>
+      </div>
     </div>
   );
 }

@@ -94,7 +94,7 @@ export default function Hero({ onRegisterClick }) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-20 pb-16 overflow-hidden bg-[var(--bg-main)] transition-colors duration-500"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-20 pb-16 overflow-hidden bg-(--bg-main) transition-colors duration-500"
     >
       {/* Parallax background */}
       <div
@@ -109,7 +109,7 @@ export default function Hero({ onRegisterClick }) {
       />
       
       {/* Overlay to handle theme contrast better */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-main)] via-transparent to-[var(--bg-main)] opacity-80 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-linear-to-b from-(--bg-main) via-transparent to-(--bg-main) opacity-80 transition-colors duration-500" />
 
       {/* Floating colour blobs */}
       <div
@@ -132,8 +132,8 @@ export default function Hero({ onRegisterClick }) {
               July 11· 2026
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-5 leading-tight tracking-tighter">
-              <div ref={title1Ref} className="text-[var(--text-main)] transition-colors duration-500">YOUNG TECHIES<br className="hidden sm:block" /> FESTIVAL</div>
+            <h1 className="text-6xl sm:text-4xl md:text-6xl font-black mb-5 leading-tight tracking-tighter">
+              <div ref={title1Ref} className="text-(--text-main) transition-colors duration-500">YOUNG TECHIES<br className="hidden sm:block" /> FESTIVAL</div>
               <div ref={title2Ref} className="text-primary italic text-base sm:text-lg md:text-xl mt-2 font-medium">
                 A bold celebration where young innovators shape the future.
               </div>
@@ -141,12 +141,12 @@ export default function Hero({ onRegisterClick }) {
 
             <p
               ref={descRef}
-              className="text-sm sm:text-base md:text-lg text-[var(--text-muted)] max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed transition-colors duration-500"
+              className="text-sm sm:text-base md:text-lg text-(--text-muted) max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed transition-colors duration-500"
             >
               Join thousands of creators at the intersection of{' '}
-              <span className="text-[var(--text-main)] font-medium">Code</span>,{' '}
-              <span className="text-[var(--text-main)] font-medium">Design</span>, and{' '}
-              <span className="text-[var(--text-main)] font-medium">Future Tech</span>.
+              <span className="text-(--text-main) font-medium">Code</span>,{' '}
+              <span className="text-(--text-main) font-medium">Design</span>, and{' '}
+              <span className="text-(--text-main) font-medium">Future Tech</span>.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
@@ -157,7 +157,7 @@ export default function Hero({ onRegisterClick }) {
                 <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative z-10">Get Your Ticket</span>
               </button>
-              <button className="px-6 py-3.5 border border-slate-200 dark:border-white/20 text-slate-700 dark:text-white rounded-2xl text-sm sm:text-base bg-white dark:bg-white/5 shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 transition-all duration-300 transition-colors">
+              <button className="px-6 py-3.5 border border-slate-200 dark:border-white/20 text-slate-700 dark:text-white rounded-2xl text-sm sm:text-base bg-white dark:bg-white/5 shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 transition-colors duration-300">
                 Learn More
               </button>
             </div>
@@ -165,7 +165,7 @@ export default function Hero({ onRegisterClick }) {
 
           {/* Right — countdown */}
           <div ref={countdownRef} className="flex flex-col items-center md:items-end gap-4">
-            <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-semibold transition-colors duration-500">
+            <p className="text-xs uppercase tracking-widest text-(--text-muted) font-semibold transition-colors duration-500">
               Festival Starts In
             </p>
             <Countdown targetDate="2026-07-11T09:00:00" />

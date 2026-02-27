@@ -111,6 +111,14 @@
       radial-gradient(at 0% 100%, rgba(0, 69, 255, var(--glow-opacity)) 0px, transparent 50%);
     transition: opacity 0.5s ease;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 .perspective-1000 {

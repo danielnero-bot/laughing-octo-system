@@ -67,7 +67,6 @@ export default function App() {
         onClose={() => setIsRegisterOpen(false)} 
       />
 
-      {/* Premium Scroll To Top */}
       <button 
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 z-50 p-4 rounded-full bg-[var(--bg-main)] border border-[var(--stat-card-border)] shadow-xl text-[var(--text-muted)] hover:text-primary hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 ${showScroll ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none'}`}
@@ -76,7 +75,7 @@ export default function App() {
         <FaArrowUp size={18} />
       </button>
 
-      {/* Simple Footer */}
+    
       <footer className="py-12 px-6 bg-[var(--section-alt-bg)] border-t border-[var(--stat-card-border)] text-center transition-colors duration-500">
         <p className="text-[var(--text-muted)] text-xs font-bold uppercase tracking-widest transition-colors duration-500">
           © 2026 Young Techies Festival • Built for the next generation.
