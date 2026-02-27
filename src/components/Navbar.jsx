@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import brandLogo from "../assets/image.png";
+import ThemeToggle from './ThemeToggle';
 
 const CardNav = ({
   logo = brandLogo,
@@ -9,10 +10,7 @@ const CardNav = ({
   items,
   className = '',
   ease = 'power3.out',
-  baseColor = '#fff',
-  menuColor,
-  buttonBgColor,
-  buttonTextColor,
+  baseColor,
   onCtaClick
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -151,49 +149,53 @@ const CardNav = ({
 
   return (
     <div
-      className={`card-nav-container fixed left-1/2 -translate-x-1/2 w-[92%] max-w-[800px] z-[99] top-[1em] md:top-[2em] ${className}`}
+      className={`card-nav-container fixed left-1/2 -translate-x-1/2 w-[92%] max-w-[850px] z-[99] top-[1em] md:top-[2em] ${className}`}
     >
       <nav
         ref={navRef}
-        className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl shadow-xl relative overflow-hidden will-change-[height] border border-white/10`}
-        style={{ 
-          backgroundColor: baseColor,
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)'
-        }}
+        className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl shadow-xl relative overflow-hidden will-change-[height] border border-slate-200/50 dark:border-white/10 bg-[var(--nav-bg)] backdrop-blur-xl transition-colors duration-500`}
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 px-4 z-[2]">
-          <div
-            className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} group h-full flex flex-col items-center justify-center cursor-pointer gap-[5px] order-2 md:order-none`}
-            onClick={toggleMenu}
-            role="button"
-            aria-label={isExpanded ? 'Close menu' : 'Open menu'}
-            tabIndex={0}
-            style={{ color: 'white' }}
-          >
+          <div className="flex items-center gap-3">
             <div
-              className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
-                isHamburgerOpen ? 'translate-y-[3.5px] rotate-45' : ''
-              } group-hover:opacity-75`}
-            />
-            <div
-              className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
-                isHamburgerOpen ? '-translate-y-[3.5px] -rotate-45' : ''
-              } group-hover:opacity-75`}
+              className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} group h-full flex flex-col items-center justify-center cursor-pointer gap-[5px] text-[var(--text-main)]`}
+              onClick={toggleMenu}
+              role="button"
+              aria-label={isExpanded ? 'Close menu' : 'Open menu'}
+              tabIndex={0}
+            >
+              <div
+                className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
+                  isHamburgerOpen ? 'translate-y-[3.5px] rotate-45' : ''
+                } group-hover:opacity-75`}
+              />
+              <div
+                className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
+                  isHamburgerOpen ? '-translate-y-[3.5px] -rotate-45' : ''
+                } group-hover:opacity-75`}
+              />
+            </div>
+          </div>
+
+          <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 transition-transform duration-300 hover:scale-105">
+            <img 
+              src={logo} 
+              alt={logoAlt} 
+              className="logo h-[32px] md:h-[28px] transition-all duration-500" 
+              style={{ filter: `brightness(var(--brightness-logo))` }}
             />
           </div>
 
-          <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none transition-transform duration-300 hover:scale-105">
-            <img src={logo} alt={logoAlt} className="logo h-[32px] md:h-[28px]" />
+          <div className="flex items-center gap-2 sm:gap-3">
+            <ThemeToggle />
+            <button
+              onClick={onCtaClick}
+              type="button"
+              className="card-nav-cta-button inline-flex border-0 rounded-xl px-4 md:px-5 items-center h-[44px] md:h-[40px] font-bold text-sm md:text-base cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg bg-[var(--color-primary)] text-white"
+            >
+              Join Now
+            </button>
           </div>
-
-          <button
-            type="button"
-            className="card-nav-cta-button inline-flex border-0 rounded-xl px-4 md:px-5 items-center h-[44px] md:h-[40px] font-bold text-sm md:text-base cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg order-3 md:order-none"
-            style={{ backgroundColor: buttonBgColor, color: 'white' }}
-          >
-            Join Now
-          </button>
         </div>
 
         <div
@@ -205,9 +207,8 @@ const CardNav = ({
           {(items || []).slice(0, 3).map((item, idx) => (
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%]"
+              className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%] bg-slate-500/5 dark:bg-white/5 text-[var(--text-main)] transition-colors duration-500"
               ref={setCardRef(idx)}
-              style={{ backgroundColor: item.bgColor, color: 'white' }}
             >
               <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                 {item.label}
@@ -216,7 +217,7 @@ const CardNav = ({
                 {item.links?.map((lnk, i) => (
                   <a
                     key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
+                    className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px] text-[var(--text-muted)]"
                     href={lnk.href}
                     aria-label={lnk.ariaLabel}
                   >

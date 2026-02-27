@@ -9,74 +9,79 @@ import WhyCome from "./components/whycome"
 import Gallery from "./components/Gallery"
 import TechTalks from "./components/TechTalks"
 import Social from "./components/Social"
+import { FaArrowUp } from "react-icons/fa";
 
 export default function App() {
   const navItems = [
-    {
-      label: "Festival",
-      bgColor: "",
-      textColor: "#000",
-      links: [
-        { label: "Schedule", href: "/schedule" },
-        { label: "Speakers", href: "/speakers" },
-        { label: "Workshops", href: "/workshops" }
-      ]
-    },
-    {
-      label: "Experience",
-      bgColor: "",
-      textColor: "#fff",
-      links: [
-        { label: "Innovation Hub", href: "/hub" },
-        { label: "Gaming Zone", href: "/gaming" },
-        { label: "VR Alley", href: "/vr" }
-      ]
-    },
-    {
-      label: "Join Us",
-      bgColor: "",
-      textColor: "#000",
-      links: [
-        { label: "Register", href: "/register" },
-        { label: "Sponsorship", href: "/sponsor" },
-        { label: "Volunteer", href: "/volunteer" }
-      ]
-    }
+    { label: "Festival", links: [ { label: "Schedule", href: "#" }, { label: "Speakers", href: "#" }, { label: "Workshops", href: "#" } ] },
+    { label: "Experience", links: [ { label: "Innovation Hub", href: "#" }, { label: "Gaming Zone", href: "#" }, { label: "VR Alley", href: "#" } ] },
+    { label: "Join Us", links: [ { label: "Register", href: "#" }, { label: "Sponsorship", href: "#" }, { label: "Volunteer", href: "#" } ] }
   ];
 
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {
-    // Small delay to make it feel more natural and let the landing page load first
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsRegisterOpen(true);
-    }, 2000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className="min-h-screen bg-tech-dark overflow-x-hidden bg-mesh">
+    <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] overflow-x-hidden selection:bg-primary/20 selection:text-primary transition-colors duration-500">
       <div className="noise-bg" />
+      
       <Navbar 
         items={navItems} 
-        buttonBgColor="" 
-        buttonTextColor="#000" 
-        baseColor="rgba(255, 255, 255, 0.05)"
         onCtaClick={() => setIsRegisterOpen(true)}
       />
-      <Routes>
-        <Route path="/" element={<Hero onRegisterClick={() => setIsRegisterOpen(true)} />} />
-      </Routes>
-      <AboutFestival/>
-      <WhyCome onRegisterClick={() => setIsRegisterOpen(true)} />
-      <Gallery />
-      <TechTalks />
-      <Social />
-      <Sponsor/>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Hero onRegisterClick={() => setIsRegisterOpen(true)} />} />
+        </Routes>
+        
+        <AboutFestival />
+        <WhyCome onRegisterClick={() => setIsRegisterOpen(true)} />
+        <Gallery />
+        <TechTalks />
+        <Social />
+        <Sponsor />
+      </main>
+
       <RegisterModal 
         isOpen={isRegisterOpen} 
         onClose={() => setIsRegisterOpen(false)} 
       />
+
+      {/* Premium Scroll To Top */}
+      <button 
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 z-50 p-4 rounded-full bg-[var(--bg-main)] border border-[var(--stat-card-border)] shadow-xl text-[var(--text-muted)] hover:text-primary hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 ${showScroll ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none'}`}
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp size={18} />
+      </button>
+
+      {/* Simple Footer */}
+      <footer className="py-12 px-6 bg-[var(--section-alt-bg)] border-t border-[var(--stat-card-border)] text-center transition-colors duration-500">
+        <p className="text-[var(--text-muted)] text-xs font-bold uppercase tracking-widest transition-colors duration-500">
+          © 2026 Young Techies Festival • Built for the next generation.
+        </p>
+      </footer>
     </div>
   )
 }

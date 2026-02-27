@@ -18,7 +18,7 @@ export default function Hero({ onRegisterClick }) {
   useEffect(() => {
     const ctx = gsap.context(() => {
 
-      // ── ENTRANCE TIMELINE (on load, not scroll) ──
+      // ── ENTRANCE TIMELINE ──
       const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
       tl.fromTo(title1Ref.current,
@@ -94,20 +94,22 @@ export default function Hero({ onRegisterClick }) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-20 pb-16 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-20 pb-16 overflow-hidden bg-[var(--bg-main)] transition-colors duration-500"
     >
       {/* Parallax background */}
       <div
         ref={bgRef}
-        className="absolute inset-0 scale-110"
+        className="absolute inset-0 scale-110 opacity-40 dark:opacity-60 transition-opacity duration-1000"
         style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(5,5,16,0.5), rgba(5,5,16,0.6)), url('https://youngtechies.africa/wp-content/uploads/2025/11/IMG_9972.jpg')",
+          backgroundImage: "url('https://youngtechies.africa/wp-content/uploads/2025/11/IMG_9972.jpg')",
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
           willChange: 'transform',
         }}
       />
+      
+      {/* Overlay to handle theme contrast better */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-main)] via-transparent to-[var(--bg-main)] opacity-80 transition-colors duration-500" />
 
       {/* Floating colour blobs */}
       <div
@@ -125,13 +127,13 @@ export default function Hero({ onRegisterClick }) {
 
           {/* Left — text */}
           <div className="text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-primary mb-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/5 dark:bg-white/5 border border-slate-500/10 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-primary mb-5 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               July 11· 2026
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-5 leading-tight tracking-tighter">
-              <div ref={title1Ref} className="text-white">YOUNG TECHIES<br className="hidden sm:block" /> FESTIVAL</div>
+              <div ref={title1Ref} className="text-[var(--text-main)] transition-colors duration-500">YOUNG TECHIES<br className="hidden sm:block" /> FESTIVAL</div>
               <div ref={title2Ref} className="text-primary italic text-base sm:text-lg md:text-xl mt-2 font-medium">
                 A bold celebration where young innovators shape the future.
               </div>
@@ -139,12 +141,12 @@ export default function Hero({ onRegisterClick }) {
 
             <p
               ref={descRef}
-              className="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-[var(--text-muted)] max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed transition-colors duration-500"
             >
               Join thousands of creators at the intersection of{' '}
-              <span className="text-white font-medium">Code</span>,{' '}
-              <span className="text-white font-medium">Design</span>, and{' '}
-              <span className="text-white font-medium">Future Tech</span>.
+              <span className="text-[var(--text-main)] font-medium">Code</span>,{' '}
+              <span className="text-[var(--text-main)] font-medium">Design</span>, and{' '}
+              <span className="text-[var(--text-main)] font-medium">Future Tech</span>.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
@@ -152,10 +154,10 @@ export default function Hero({ onRegisterClick }) {
                 onClick={onRegisterClick}
                 className="group relative px-7 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-2xl text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-accent-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative z-10">Get Your Ticket</span>
               </button>
-              <button className="px-6 py-3.5 border border-white/20 text-white rounded-2xl text-sm sm:text-base bg-white/3 hover:bg-white/8 hover:border-white/30 transition-all duration-300">
+              <button className="px-6 py-3.5 border border-slate-200 dark:border-white/20 text-slate-700 dark:text-white rounded-2xl text-sm sm:text-base bg-white dark:bg-white/5 shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 transition-all duration-300 transition-colors">
                 Learn More
               </button>
             </div>
@@ -163,18 +165,12 @@ export default function Hero({ onRegisterClick }) {
 
           {/* Right — countdown */}
           <div ref={countdownRef} className="flex flex-col items-center md:items-end gap-4">
-            <p className="text-xs uppercase tracking-widest text-white/40 font-semibold">
+            <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-semibold transition-colors duration-500">
               Festival Starts In
             </p>
             <Countdown targetDate="2026-07-11T09:00:00" />
           </div>
         </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <span className="text-[10px] uppercase tracking-widest text-white">Scroll</span>
-        <div className="w-px h-8 bg-white animate-bounce" />
       </div>
     </section>
   );

@@ -12,8 +12,8 @@ const categories = [
     description:
       "Get your hands dirty with real tools — build robots, wire circuits, code apps, and create with AI under guidance from industry experts.",
     items: ["Robotics & IoT", "AI Prototyping", "Web & App Dev", "3D Printing"],
-    color: "#00D2FF",
-    glow: "rgba(0, 210, 255, 0.2)",
+    color: "#0077FF",
+    glow: "rgba(0, 119, 255, 0.1)",
   },
   {
     icon: "🎤",
@@ -22,8 +22,8 @@ const categories = [
     description:
       "Hear from Africa's brightest tech minds, founders, and innovators who started exactly where you are — and built something extraordinary.",
     items: ["Keynote Sessions", "Startup Stories", "Career Pathways", "Future Tech"],
-    color: "#FF00E5",
-    glow: "rgba(255, 0, 229, 0.2)",
+    color: "#D400FF",
+    glow: "rgba(212, 0, 255, 0.1)",
   },
   {
     icon: "🏆",
@@ -32,8 +32,8 @@ const categories = [
     description:
       "Put your skills to the test in live challenges. Compete, collaborate, and showcase your creativity to win amazing prizes and recognition.",
     items: ["Hackathon", "Robotics Race" ],
-    color: "#FFFB00",
-    glow: "rgba(255, 251, 0, 0.2)",
+    color: "#FFB000",
+    glow: "rgba(255, 176, 0, 0.1)",
   },
   {
     icon: "🥽",
@@ -43,7 +43,7 @@ const categories = [
       "Step into the future with VR worlds, AR demos, drone flights, and cutting-edge technology experiences you won't find anywhere else.",
     items: ["VR / AR Alley" , "Gaming Arena", "Innovation Hub"],
     color: "#0045FF",
-    glow: "rgba(0, 69, 255, 0.2)",
+    glow: "rgba(0, 69, 255, 0.1)",
   },
 ];
 
@@ -54,219 +54,118 @@ export default function AboutFestival() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-
-      // ── ABOUT: badge + heading reveal ──
+      // reveal animations...
       gsap.from(".about-badge", {
         y: 20, opacity: 0, duration: 0.7, ease: "power3.out",
-        scrollTrigger: { trigger: sectionRef.current, start: "top 82%" },
+        scrollTrigger: { trigger: sectionRef.current, start: "top 82%", once: true },
       });
-
       gsap.from(".about-heading", {
         y: 60, opacity: 0, duration: 1.1, ease: "expo.out",
-        scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
+        scrollTrigger: { trigger: sectionRef.current, start: "top 78%", once: true },
       });
-
       gsap.from(".about-body", {
         y: 40, opacity: 0, duration: 0.9, stagger: 0.15, ease: "power3.out",
-        scrollTrigger: { trigger: ".about-body", start: "top 85%" },
+        scrollTrigger: { trigger: ".about-body", start: "top 85%", once: true },
       });
-
-      // ── STAT CARDS staggered slide-up ──
       gsap.from(".stat-card", {
         y: 50, opacity: 0, scale: 0.95, duration: 0.7,
         stagger: 0.1, ease: "back.out(1.4)",
-        scrollTrigger: { trigger: ".stat-card", start: "top 88%" },
+        scrollTrigger: { trigger: ".stat-card", start: "top 88%", once: true },
       });
-
-      // ── VIDEO embed slide in from right ──
       gsap.fromTo(videoRef.current,
-        { x: 80, opacity: 0 },
+        { scale: 0.95, opacity: 0 },
         {
-          x: 0, opacity: 1, duration: 1.2, ease: "expo.out",
-          scrollTrigger: { trigger: videoRef.current, start: "top 82%" },
+          scale: 1, opacity: 1, duration: 1.2, ease: "expo.out",
+          scrollTrigger: { trigger: videoRef.current, start: "top 82%", once: true },
         }
       );
-
-      // ── CATEGORIES heading ──
       gsap.fromTo(catHeadRef.current,
         { y: 60, opacity: 0 },
         {
           y: 0, opacity: 1, duration: 1, ease: "expo.out",
-          scrollTrigger: { trigger: catHeadRef.current, start: "top 85%" },
+          scrollTrigger: { trigger: catHeadRef.current, start: "top 85%", once: true },
         }
       );
-
-      // ── CATEGORY CARDS staggered from bottom ──
       gsap.from(".cat-card", {
-        y: 90, opacity: 0, duration: 0.85, stagger: 0.1, ease: "expo.out",
-        scrollTrigger: { trigger: ".categories-grid", start: "top 85%" },
+        y: 70, opacity: 0, duration: 0.85, stagger: 0.1, ease: "expo.out",
+        scrollTrigger: { trigger: ".categories-grid", start: "top 85%", once: true },
       });
-
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <>
-      {/* ─── ABOUT SECTION ─── */}
-      <section
-        ref={sectionRef}
-        className="relative py-28 px-6 bg-tech-dark text-white overflow-hidden"
-      >
-        {/* Background glows */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-pink/10 rounded-full blur-[150px]" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-
-          {/* LEFT CONTENT */}
-          <div>
-            <div className="about-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-primary mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+    <div className="bg-[var(--bg-main)] transition-colors duration-500">
+      <section ref={sectionRef} className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="flex-1 text-center lg:text-left">
+            <div className="about-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold uppercase tracking-widest text-primary mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               About the Festival
             </div>
-
-            <h2 className="about-heading text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
-              Empowering The{" "}
-              <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
-                Next Generation
-              </span>{" "}
-              of Innovators
+            <h2 className="about-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-8 text-[var(--text-main)] transition-colors duration-500">
+              The Hub of <br />
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Young Innovation.
+              </span>
             </h2>
-
-            <p className="about-body text-lg text-slate-400 mb-6 leading-relaxed">
-              Young Techies Festival is an annual one-day experience designed to expose,
-              inspire and equip young minds{" "}
-              <span className="text-white font-medium">(ages 8–17)</span> with future-ready
-              technology skills.
-            </p>
-
-            <p className="about-body text-lg text-slate-400 mb-10 leading-relaxed">
-              From hands-on Robotics and IoT to immersive Virtual & Augmented Reality,
-              participants gain first-hand experience with real tools shaping the future
-              workforce.
-            </p>
-
-            <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
+              <p className="about-body text-lg text-[var(--text-muted)] leading-relaxed font-light transition-colors duration-500">
+                Now in its 4th year, the <span className="text-[var(--text-main)] font-bold transition-colors">Young Techies Festival</span> is West Africa’s premier stage for the next generation of builders.
+              </p>
+              <p className="about-body text-lg text-[var(--text-muted)] leading-relaxed font-light transition-colors duration-500">
+                From <span className="text-secondary font-semibold">Web3 to Robotics</span>, we bring the world’s most exciting tech directly to the curious minds of today.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 mt-12">
               {[
-                { value: "500+", label: "Young Innovators" },
-                { value: "1 Day", label: "Immersive Experience" },
-                { value: "20+", label: "Expert Speakers" },
-                { value: "10+", label: "Tech Zones" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="stat-card glass-card rounded-2xl p-5"
-                >
-                  <h3 className="text-3xl font-black text-primary mb-1">{stat.value}</h3>
-                  <p className="text-sm text-slate-400">{stat.label}</p>
+                { label: "Attendees", val: "5,000+" },
+                { label: "Workshops", val: "24+" },
+                { label: "Speakers", val: "15+" },
+                { label: "Prizes", val: "₦2.5M" },
+              ].map((s, i) => (
+                <div key={i} className="stat-card p-5 sm:p-6 rounded-3xl bg-[var(--stat-card-bg)] border border-[var(--stat-card-border)] shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
+                  <div className="text-2xl sm:text-3xl font-black text-primary mb-1">{s.val}</div>
+                  <div className="text-[10px] sm:text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold transition-colors duration-500">{s.label}</div>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* RIGHT VISUAL — YouTube Embed */}
-          <div ref={videoRef} className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/kUT6PHYWsrk?si=53VO4DdYJQFVMC8F"
-              title="Young Techies Festival"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          <div ref={videoRef} className="flex-1 w-full lg:w-auto relative px-2">
+            <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-2xl ring-8 ring-[var(--stat-card-border)] transition-all duration-500">
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/kUT6PHYWsrk" title="YTF Highlights" frameBorder="0" allowFullScreen />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── CATEGORIES SECTION ─── */}
-      <section className="relative py-28 px-6 bg-tech-dark text-white overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-secondary/5 rounded-full blur-[200px]" />
-        </div>
-
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 bg-[var(--section-alt-bg)] overflow-hidden border-t border-[var(--stat-card-border)] transition-colors duration-500">
         <div className="relative max-w-7xl mx-auto">
-          {/* Section header */}
-          <div ref={catHeadRef} className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-accent-yellow mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent-yellow animate-pulse" />
+          <div ref={catHeadRef} className="text-center mb-16 sm:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--bg-main)] border border-[var(--stat-card-border)] text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] mb-5 shadow-sm transition-colors">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               What's Inside
             </div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-4">
-              Built for{" "}
-              <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
-                Every Explorer
-              </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4 text-[var(--text-main)] transition-colors duration-500">
+              Built for <br className="sm:hidden" />
+              <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">Every Explorer</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Four worlds of discovery — pick your passion and dive in.
+            <p className="text-[var(--text-muted)] text-lg max-w-xl mx-auto font-light leading-relaxed transition-colors duration-500">
+              Four worlds of discovery — pick your passion and dive into the future.
             </p>
           </div>
-
-          {/* Cards grid */}
-          <div className="categories-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="categories-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {categories.map((cat) => (
-              <div
-                key={cat.tag}
-                className="cat-card group relative flex flex-col gap-5 p-7 rounded-3xl border border-white/8 bg-white/3 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
-                style={{ boxShadow: `0 0 0 0 ${cat.glow}` }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 24px 48px -12px ${cat.glow}`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = `0 0 0 0 ${cat.glow}`;
-                }}
-              >
-                {/* Glow blob */}
-                <div
-                  className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-[80px] opacity-0 group-hover:opacity-60 transition-opacity duration-700"
-                  style={{ background: cat.glow }}
-                />
-
-                {/* Icon + tag */}
+              <div key={cat.tag} className="cat-card group relative flex flex-col gap-6 p-8 rounded-[2.5rem] bg-[var(--bg-main)] border border-[var(--stat-card-border)] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 overflow-hidden">
                 <div className="flex items-center justify-between">
-                  <span className="text-4xl">{cat.icon}</span>
-                  <span
-                    className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{
-                      background: `${cat.color}22`,
-                      color: cat.color,
-                      border: `1px solid ${cat.color}44`,
-                    }}
-                  >
-                    {cat.tag}
-                  </span>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-sm bg-slate-500/5 dark:bg-white/5" style={{ borderColor: `${cat.color}20`, borderWidth: '1px' }}>{cat.icon}</div>
+                  <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: `${cat.color}15`, color: cat.color, border: `1px solid ${cat.color}30` }}>{cat.tag}</span>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-black text-white leading-tight">
-                  {cat.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-slate-400 leading-relaxed flex-1">
-                  {cat.description}
-                </p>
-
-                {/* Item pills */}
+                <h3 className="text-xl font-bold text-[var(--text-main)] group-hover:text-primary transition-colors duration-500">{cat.title}</h3>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed font-light transition-colors duration-500">{cat.description}</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {cat.items.map((item) => (
-                    <span
-                      key={item}
-                      className="text-[11px] font-semibold px-3 py-1.5 rounded-xl"
-                      style={{
-                        background: "rgba(255,255,255,0.05)",
-                        border: "1px solid rgba(255,255,255,0.08)",
-                        color: "rgba(255,255,255,0.7)",
-                      }}
-                    >
-                      {item}
-                    </span>
+                    <span key={item} className="text-[11px] font-semibold px-3 py-1.5 rounded-xl bg-[var(--section-alt-bg)] border border-[var(--stat-card-border)] text-[var(--text-muted)] transition-colors duration-500">{item}</span>
                   ))}
                 </div>
               </div>
@@ -274,6 +173,6 @@ export default function AboutFestival() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
