@@ -181,20 +181,13 @@ const CardNav = ({
             <img 
               src={logo} 
               alt={logoAlt} 
-              className="logo h-[32px] md:h-[28px] transition-all duration-500" 
-              style={{ filter: `brightness(var(--brightness-logo))` }}
+              className="logo h-[32px] md:h-[28px] transition-all duration-500"
             />
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
-            <button
-              onClick={onCtaClick}
-              type="button"
-              className="card-nav-cta-button inline-flex border-0 rounded-xl px-4 md:px-5 items-center h-[44px] md:h-[40px] font-bold text-sm md:text-base cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg bg-[var(--color-primary)] text-white"
-            >
-              Join Now
-            </button>
+            
           </div>
         </div>
 
