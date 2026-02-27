@@ -110,7 +110,7 @@ export default function WhyCome({ onRegisterClick }) {
           <p className="text-xl sm:text-2xl md:text-3xl font-black text-[var(--text-main)] leading-snug -mt-8 mb-4 transition-colors duration-500">
             Every kid who walks through those doors walks out thinking differently about what they can build with technology.
           </p>
-          <span className="text-sm text-[var(--text-muted)] uppercase tracking-widest font-semibold transition-colors duration-500">— Young Techies Festival Alumni</span>
+          <span className="text-sm text-[var(--text-muted)] uppercase tracking-widest font-semibold transition-colors duration-500">— Miss Chidinma Umumna</span>
         </div>
 
         <div ref={ctaRef} className="relative flex flex-col lg:flex-row items-center justify-between gap-8 p-10 lg:p-14 rounded-[3rem] bg-[var(--color-tech-dark)] dark:bg-white/5 text-white shadow-2xl overflow-hidden border border-white/5">
