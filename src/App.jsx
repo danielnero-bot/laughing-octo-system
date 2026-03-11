@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
@@ -9,13 +9,65 @@ import WhyCome from "./components/whycome"
 import Gallery from "./components/Gallery"
 import TechTalks from "./components/TechTalks"
 import Social from "./components/Social"
+import Volunteer from "./pages/Volunteer"
+import Register from "./pages/Register"
+import Sponsorship from "./pages/Sponsorship"
 import { FaArrowUp } from "react-icons/fa";
 
+const Home = ({ onRegisterClick }) => (
+  <>
+    <Hero onRegisterClick={onRegisterClick} />
+    <AboutFestival />
+    <WhyCome onRegisterClick={onRegisterClick} />
+    <Gallery />
+    <TechTalks />
+    <Social />
+    <Sponsor />
+  </>
+);
+
 export default function App() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   const navItems = [
-    { label: "Festival", links: [ { label: "Schedule", href: "#" }, { label: "Speakers", href: "#" }, { label: "Workshops", href: "#" } ] },
-    { label: "Experience", links: [ { label: "Innovation Hub", href: "#" }, { label: "Gaming Zone", href: "#" }, { label: "VR Alley", href: "#" } ] },
-    { label: "Join Us", links: [ { label: "Register", href: "#" }, { label: "Sponsorship", href: "#" }, { label: "Volunteer", href: "#" } ] }
+    { 
+      label: "Festival", 
+      links: [ 
+        { label: "Schedule", href: "/#schedule" }, 
+        { label: "Speakers", href: "/#speakers" }, 
+        { label: "Workshops", href: "/#workshops" } 
+      ] 
+    },
+    { 
+      label: "Experience", 
+      links: [ 
+        { label: "Innovation Hub", href: "/#innovation" }, 
+        { label: "Gaming Zone", href: "/#gaming" }, 
+        { label: "VR Alley", href: "/#vr" } 
+      ] 
+    },
+    { 
+      label: "Join Us", 
+      links: [ 
+        { label: "Register", href: "/register" }, 
+        { label: "Sponsorship", href: "/sponsor" }, 
+        { label: "Volunteer", href: "/volunteer" } 
+      ] 
+    }
   ];
 
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -31,10 +83,14 @@ export default function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsRegisterOpen(true);
+      // setShowing modal only if on home page and not volunteered yet? 
+      // For now keeping original logic
+      if (pathname === "/") {
+        setIsRegisterOpen(true);
+      }
     }, 4000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -51,15 +107,11 @@ export default function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Hero onRegisterClick={() => setIsRegisterOpen(true)} />} />
+          <Route path="/" element={<Home onRegisterClick={() => setIsRegisterOpen(true)} />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/sponsor" element={<Sponsorship />} />
         </Routes>
-        
-        <AboutFestival />
-        <WhyCome onRegisterClick={() => setIsRegisterOpen(true)} />
-        <Gallery />
-        <TechTalks />
-        <Social />
-        <Sponsor />
       </main>
 
       <RegisterModal 
@@ -75,7 +127,6 @@ export default function App() {
         <FaArrowUp size={18} />
       </button>
 
-    
       <footer className="py-12 px-6 bg-[var(--section-alt-bg)] border-t border-[var(--stat-card-border)] text-center transition-colors duration-500">
         <p className="text-[var(--text-muted)] text-xs font-bold uppercase tracking-widest transition-colors duration-500">
           © 2026 Young Techies Festival • Built for the next generation.

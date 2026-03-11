@@ -1,6 +1,7 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
+import { Link, useLocation } from 'react-router-dom';
 import brandLogo from "../assets/image.png";
 import ThemeToggle from './ThemeToggle';
 
@@ -18,6 +19,19 @@ const CardNav = ({
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
+  const location = useLocation();
+
+  // Close menu on route change
+  useEffect(() => {
+    if (isExpanded) {
+      setIsHamburgerOpen(false);
+      setIsExpanded(false);
+      document.body.style.overflow = 'unset';
+      if (tlRef.current) {
+        tlRef.current.progress(0).pause();
+      }
+    }
+  }, [location.pathname, isExpanded]);
 
   const calculateHeight = () => {
     const navEl = navRef.current;
@@ -149,7 +163,7 @@ const CardNav = ({
 
   return (
     <div
-      className={`card-nav-container fixed left-1/2 -translate-x-1/2 w-[92%] max-w-[850px] z-[99] top-[1em] md:top-[2em] ${className}`}
+      className={`card-nav-container fixed left-1/2 -translate-x-1/2 w-[92%] max-w-[850px] z-99 top-[1em] md:top-[2em] ${className}`}
     >
       <nav
         ref={navRef}
@@ -177,17 +191,20 @@ const CardNav = ({
             </div>
           </div>
 
-          <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 transition-transform duration-300 hover:scale-105">
+          <Link 
+            to="/" 
+            className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 transition-transform duration-300 hover:scale-105"
+            onClick={() => isExpanded && toggleMenu()}
+          >
             <img 
               src={logo} 
               alt={logoAlt} 
               className="logo h-[32px] md:h-[28px] transition-all duration-500"
             />
-          </div>
+          </Link>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
-            
           </div>
         </div>
 
@@ -208,15 +225,18 @@ const CardNav = ({
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
                 {item.links?.map((lnk, i) => (
-                  <a
+                  <Link
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px] text-(--text-muted)"
-                    href={lnk.href}
+                    to={lnk.href}
                     aria-label={lnk.ariaLabel}
+                    onClick={() => {
+                      if (isExpanded) toggleMenu();
+                    }}
                   >
                     <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
                     {lnk.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

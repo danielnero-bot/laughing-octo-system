@@ -72,6 +72,7 @@ export default function WhyCome({ onRegisterClick }) {
 
   return (
     <section
+      id="innovation"
       ref={sectionRef}
       className="relative py-20 sm:py-28 px-4 sm:px-6 bg-(--bg-main) text-(--text-main) overflow-hidden transition-colors duration-500"
     >
@@ -165,9 +166,9 @@ export default function WhyCome({ onRegisterClick }) {
           </div>
           <button
             onClick={onRegisterClick}
-            className="group relative flex-shrink-0 px-10 py-5 bg-gradient-to-r from-primary to-secondary text-white font-black rounded-2xl shadow-xl shadow-primary/25 hover:shadow-primary/50 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden text-sm uppercase tracking-wider"
+            className="group relative shrink-0 px-10 py-5 bg-linear-to-r from-primary to-secondary text-white font-black rounded-2xl shadow-xl shadow-primary/25 hover:shadow-primary/50 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden text-sm uppercase tracking-wider"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative z-10">Register Now — It's Free</span>
           </button>
         </div>

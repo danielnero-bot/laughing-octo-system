@@ -96,7 +96,7 @@ export default function AboutFestival() {
 
   return (
     <div className="bg-(--bg-main) transition-colors duration-500">
-      <section ref={sectionRef} className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
+      <section id="workshops" ref={sectionRef} className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
         <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 text-center lg:text-left">
             <div className="about-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold uppercase tracking-widest text-primary mb-6">
@@ -132,14 +132,14 @@ export default function AboutFestival() {
             </div>
           </div>
           <div ref={videoRef} className="flex-1 w-full lg:w-auto relative px-2">
-            <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-2xl ring-8 ring-(--stat-card-border) transition-all duration-500">
+            <div className="relative aspect-video rounded-4xl overflow-hidden shadow-2xl ring-8 ring-(--stat-card-border) transition-all duration-500">
               <iframe className="w-full h-full" src="https://www.youtube.com/embed/kUT6PHYWsrk" title="YTF Highlights" frameBorder="0" allowFullScreen />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative py-20 sm:py-28 px-4 sm:px-6 bg-(--section-alt-bg) overflow-hidden border-t border-(--stat-card-border) transition-colors duration-500">
+      <section id="experience" className="relative py-20 sm:py-28 px-4 sm:px-6 bg-(--section-alt-bg) overflow-hidden border-t border-(--stat-card-border) transition-colors duration-500">
         <div className="relative max-w-7xl mx-auto">
           <div ref={catHeadRef} className="text-center mb-16 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--bg-main) border border-(--stat-card-border) text-[10px] font-bold uppercase tracking-widest text-(--text-muted) mb-5 shadow-sm transition-colors">

@@ -99,7 +99,7 @@ export default function Hero({ onRegisterClick }) {
       {/* Parallax background */}
       <div
         ref={bgRef}
-        className="absolute inset-0 scale-110 opacity-40 dark:opacity-60 transition-opacity duration-1000"
+        className="absolute inset-0 scale-110 opacity-60 dark:opacity-60 transition-opacity duration-1000"
         style={{
           backgroundImage: "url('https://youngtechies.africa/wp-content/uploads/2025/11/IMG_9972.jpg')",
           backgroundPosition: 'center center',
