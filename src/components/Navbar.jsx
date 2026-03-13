@@ -1,9 +1,10 @@
-import { useLayoutEffect, useRef, useState, useEffect } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
-import { Link, useLocation } from 'react-router-dom';
-import brandLogo from "../assets/image.png";
 import ThemeToggle from './ThemeToggle';
+import brandLogo from "../assets/image.png";
+import { Link } from 'react-router-dom';
+
 
 const CardNav = ({
   logo = brandLogo,
@@ -11,27 +12,14 @@ const CardNav = ({
   items,
   className = '',
   ease = 'power3.out',
-  baseColor,
-  onCtaClick
+  buttonBgColor,
+  buttonTextColor
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
-  const location = useLocation();
-
-  // Close menu on route change
-  useEffect(() => {
-    if (isExpanded) {
-      setIsHamburgerOpen(false);
-      setIsExpanded(false);
-      document.body.style.overflow = 'unset';
-      if (tlRef.current) {
-        tlRef.current.progress(0).pause();
-      }
-    }
-  }, [location.pathname, isExpanded]);
 
   const calculateHeight = () => {
     const navEl = navRef.current;
@@ -79,15 +67,11 @@ const CardNav = ({
 
     tl.to(navEl, {
       height: calculateHeight,
-      duration: 0.5,
-      ease: "power4.inOut"
+      duration: 0.4,
+      ease
     });
 
-    tl.fromTo(cardsRef.current, 
-      { y: 30, opacity: 0, scale: 0.98, filter: 'blur(4px)' },
-      { y: 0, opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.5, ease: "back.out(1.2)", stagger: 0.08 },
-      '-=0.2'
-    );
+    tl.to(cardsRef.current, { y: 0, opacity: 1, duration: 0.4, ease, stagger: 0.08 }, '-=0.1');
 
     return tl;
   };
@@ -131,18 +115,6 @@ const CardNav = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isExpanded]);
 
-  // Scroll lock for mobile
-  useLayoutEffect(() => {
-    if (isExpanded) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isExpanded]);
-
   const toggleMenu = () => {
     const tl = tlRef.current;
     if (!tl) return;
@@ -163,53 +135,47 @@ const CardNav = ({
 
   return (
     <div
-      className={`card-nav-container fixed left-1/2 -translate-x-1/2 w-[92%] max-w-[850px] z-99 top-[1em] md:top-[2em] ${className}`}
+      className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
     >
       <nav
         ref={navRef}
         className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl shadow-xl relative overflow-hidden will-change-[height] border border-slate-200/50 dark:border-white/10 bg-(--nav-bg) backdrop-blur-xl transition-colors duration-500`}
       >
-        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 px-4 z-2">
-          <div className="flex items-center gap-3">
+        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
+          <div
+            className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} text-(--text-main) group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none`}
+            onClick={toggleMenu}
+            role="button"
+            aria-label={isExpanded ? 'Close menu' : 'Open menu'}
+            tabIndex={0}
+          >
             <div
-              className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} group h-full flex flex-col items-center justify-center cursor-pointer gap-[5px] text-(--text-main)`}
-              onClick={toggleMenu}
-              role="button"
-              aria-label={isExpanded ? 'Close menu' : 'Open menu'}
-              tabIndex={0}
-            >
-              <div
-                className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
-                  isHamburgerOpen ? 'translate-y-[3.5px] rotate-45' : ''
-                } group-hover:opacity-75`}
-              />
-              <div
-                className={`hamburger-line w-[24px] h-[2px] bg-current transition-all duration-300 ease-out ${
-                  isHamburgerOpen ? '-translate-y-[3.5px] -rotate-45' : ''
-                } group-hover:opacity-75`}
-              />
-            </div>
+              className={`hamburger-line w-[30px] h-[2px] bg-current transition-[transform,opacity,margin] duration-300 ease-linear [transform-origin:50%_50%] ${
+                isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''
+              } group-hover:opacity-75`}
+            />
+            <div
+              className={`hamburger-line w-[30px] h-[2px] bg-current transition-[transform,opacity,margin] duration-300 ease-linear [transform-origin:50%_50%] ${
+                isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''
+              } group-hover:opacity-75`}
+            />
           </div>
 
-          <Link 
-            to="/" 
-            className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 transition-transform duration-300 hover:scale-105"
-            onClick={() => isExpanded && toggleMenu()}
-          >
-            <img 
-              src={logo} 
-              alt={logoAlt} 
-              className="logo h-[32px] md:h-[28px] transition-all duration-500"
-            />
+          <Link to="/" className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
+            <img src={logo} alt={logoAlt} className="logo h-[28px] transition-all duration-500" />
           </Link>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 items-center h-full font-medium cursor-pointer transition-colors duration-300"
+            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+          >
             <ThemeToggle />
-          </div>
+          </button>
         </div>
 
         <div
-          className={`card-nav-content absolute left-0 right-0 top-[60px] bottom-0 p-2 flex flex-col items-stretch gap-2 justify-start z-1 ${
+          className={`card-nav-content absolute left-0 right-0 top-[60px] bottom-0 p-2 flex flex-col items-stretch gap-2 justify-start z-[1] ${
             isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
           } md:flex-row md:items-end md:gap-[12px]`}
           aria-hidden={!isExpanded}
@@ -217,8 +183,9 @@ const CardNav = ({
           {(items || []).slice(0, 3).map((item, idx) => (
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%] bg-slate-500/5 dark:bg-white/5 text-(--text-main) transition-colors duration-500"
+              className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%]"
               ref={setCardRef(idx)}
+              style={{ backgroundColor: item.bgColor, color: item.textColor }}
             >
               <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                 {item.label}
@@ -227,12 +194,9 @@ const CardNav = ({
                 {item.links?.map((lnk, i) => (
                   <Link
                     key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px] text-(--text-muted)"
+                    className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
                     to={lnk.href}
                     aria-label={lnk.ariaLabel}
-                    onClick={() => {
-                      if (isExpanded) toggleMenu();
-                    }}
                   >
                     <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
                     {lnk.label}
@@ -248,3 +212,4 @@ const CardNav = ({
 };
 
 export default CardNav;
+

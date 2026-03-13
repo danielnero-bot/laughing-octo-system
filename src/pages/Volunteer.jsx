@@ -16,7 +16,7 @@ const Volunteer = () => {
         houseAddress: "",
         email: "",
         whatsapp: "",
-        tshirtSize: "L"
+        tshirtSize: ""
     });
 
     useLayoutEffect(() => {
@@ -147,9 +147,6 @@ const Volunteer = () => {
                     ))}
                 </div>
             </section>
-
-           
-
             {/* Application Form */}
             <section id="apply-form" className="container mx-auto px-6 max-w-4xl scroll-mt-32">
                 <div className="volunteer-form glass-card p-10 md:p-16 rounded-[2.5rem] border border-slate-200/50 dark:border-white/10 relative overflow-hidden">
