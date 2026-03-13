@@ -141,9 +141,9 @@ const CardNav = ({
         ref={navRef}
         className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl shadow-xl relative overflow-hidden will-change-[height] border border-slate-200/50 dark:border-white/10 bg-(--nav-bg) backdrop-blur-xl transition-colors duration-500`}
       >
-        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
+        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 z-[2]">
           <div
-            className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} text-(--text-main) group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none`}
+            className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} text-(--text-main) group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none p-2`}
             onClick={toggleMenu}
             role="button"
             aria-label={isExpanded ? 'Close menu' : 'Open menu'}
@@ -167,7 +167,7 @@ const CardNav = ({
 
           <div
             type="button"
-            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 items-center h-full font-medium cursor-pointer transition-colors duration-300"
+            className="card-nav-cta-button md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-2 items-center h-full font-medium cursor-pointer transition-colors duration-300"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             <ThemeToggle />
