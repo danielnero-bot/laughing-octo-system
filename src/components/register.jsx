@@ -70,37 +70,7 @@ export default function RegisterModal({ isOpen, onClose }) {
               .
             </p>
           </div>
-          <form className="space-y-5 sm:space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="space-y-1.5 sm:space-y-2">
-              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-(--text-muted) ml-1 transition-colors">
-                Full Name
-              </label>
-              <input
-                type="text"
-                placeholder="Ex: John Doe"
-                className="w-full bg-(--section-alt-bg) border border-(--stat-card-border) rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 text-(--text-main) text-sm sm:text-base placeholder:text-slate-400/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-(--bg-main) transition-all duration-500"
-              />
-            </div>
-            <div className="space-y-1.5 sm:space-y-2">
-              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-(--text-muted) ml-1 transition-colors">
-                Email Address
-              </label>
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="w-full bg-(--section-alt-bg) border border-(--stat-card-border) rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 text-(--text-main) text-sm sm:text-base placeholder:text-slate-400/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-(--bg-main) transition-all duration-500"
-              />
-            </div>
-            <button
-              type="submit"
-              className="group relative w-full mt-2 bg-gradient-to-r from-primary to-secondary text-white font-black py-4 sm:py-5 rounded-xl sm:rounded-2xl shadow-xl overflow-hidden shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.97] transition-all duration-500"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative z-10 text-base sm:text-lg uppercase tracking-wider">
-                Secure My Spot
-              </span>
-            </button>
-          </form>
+          
           <p className="mt-6 text-center text-[10px] sm:text-xs text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
             Join the elite circle of African innovators.
           </p>

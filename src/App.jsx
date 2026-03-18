@@ -14,6 +14,7 @@ import Register from "./pages/Register"
 import Sponsorship from "./pages/Sponsorship"
 import Newsletter from "./pages/newsletter"
 import NewsletterSection from "./components/NewsletterSection"
+import Hackathon from "./pages/hackathon"
 import { FaArrowUp } from "react-icons/fa";
 
 const Home = ({ onRegisterClick }) => (
@@ -52,6 +53,7 @@ export default function App() {
       links: [ 
         { label: "Schedule", href: "/#schedule" }, 
         { label: "Speakers", href: "/#speakers" }, 
+        { label: "Hackathon", href: "/hackathon" }, 
         { label: "Workshops", href: "/#workshops" } 
       ] 
     },
@@ -116,6 +118,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/sponsor" element={<Sponsorship />} />
           <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/hackathon" element={<Hackathon />} />
         </Routes>
       </main>
 

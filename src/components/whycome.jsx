@@ -22,7 +22,7 @@ const reasons = [
   {
     icon: "🏆",
     title: "Win Real Prizes",
-    body: "Compete in live hackathons and robotics challenges for cash prizes, mentorship packages, and opportunities that follow you home.",
+    body: "Compete in live hackathons and raffle draws for cash prizes, mentorship packages, and opportunities that follow you home.",
     color: "#FFB000",
     glow: "rgba(255,176,0,0.08)",
   },
@@ -36,7 +36,7 @@ const reasons = [
   {
     icon: "🥽",
     title: "Experience Tomorrow Today",
-    body: "Fly drones. Enter VR worlds. Talk to AI. Test AR prototypes. The innovations of 2035 are on the festival floor right now.",
+    body: "Enter VR worlds. Talk to AI. Test AR prototypes. The innovations of 2035 are on the festival floor right now.",
     color: "#0045FF",
     glow: "rgba(0,69,255,0.08)",
   },
@@ -156,7 +156,7 @@ export default function WhyCome({ onRegisterClick }) {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-pink/15 rounded-full blur-[120px] pointer-events-none" />
           <div className="relative text-center lg:text-left">
             <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">Limited Spots Available</p>
-            <h3 className="text-3xl sm:text-4xl font-black mb-4 leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-black mb-4 leading-tight text-(--text-main)">
               Ready to build the future?
               <br className="hidden sm:block" /> Secure your spot today.
             </h3>

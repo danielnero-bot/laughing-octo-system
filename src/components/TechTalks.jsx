@@ -17,9 +17,7 @@ const trends = [
   { label: "Robotics & IoT", icon: "⚙️", color: "#00B2FF" },
   { label: "Cybersecurity", icon: "🛡️", color: "#0045FF" },
   { label: "AR & VR", icon: "🥽", color: "#D400FF" },
-  { label: "App Development", icon: "📱", color: "#00FF94" },
-  { label: "Cloud Computing", icon: "☁️", color: "#0077FF" },
-  { label: "Data Science", icon: "📊", color: "#FF6B35" },
+  { label: "App Development", icon: "📱", color: "#00FF94" }
 ];
 
 export default function TechTalks() {
