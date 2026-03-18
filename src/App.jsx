@@ -12,6 +12,8 @@ import Social from "./components/Social"
 import Volunteer from "./pages/Volunteer"
 import Register from "./pages/Register"
 import Sponsorship from "./pages/Sponsorship"
+import Newsletter from "./pages/newsletter"
+import NewsletterSection from "./components/NewsletterSection"
 import { FaArrowUp } from "react-icons/fa";
 
 const Home = ({ onRegisterClick }) => (
@@ -23,6 +25,7 @@ const Home = ({ onRegisterClick }) => (
     <TechTalks />
     <Social />
     <Sponsor />
+    <NewsletterSection />
   </>
 );
 
@@ -55,9 +58,9 @@ export default function App() {
     { 
       label: "Experience", 
       links: [ 
-        { label: "Innovation Hub", href: "/#innovation" }, 
-        { label: "Gaming Zone", href: "/#gaming" }, 
-        { label: "VR Alley", href: "/#vr" } 
+        { label: "3D Printing", href: "/#3d-printing" }, 
+        { label: "Robotics", href: "/#robotics" }, 
+        { label: "AI", href: "/#ai" } 
       ] 
     },
     { 
@@ -65,7 +68,8 @@ export default function App() {
       links: [ 
         { label: "Register", href: "/register" }, 
         { label: "Sponsorship", href: "/sponsor" }, 
-        { label: "Volunteer", href: "/volunteer" } 
+        { label: "Volunteer", href: "/volunteer" },
+        { label: "Newsletter", href: "/newsletter" }
       ] 
     }
   ];
@@ -111,6 +115,7 @@ export default function App() {
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/register" element={<Register />} />
           <Route path="/sponsor" element={<Sponsorship />} />
+          <Route path="/newsletter" element={<Newsletter />} />
         </Routes>
       </main>
 
