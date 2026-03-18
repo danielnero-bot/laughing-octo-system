@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { FaEnvelope, FaPaperPlane, FaCheckCircle, FaStar } from 'react-icons/fa';
+import { supabase } from '../lib/supabase';
 
 const Newsletter = () => {
   const containerRef = useRef(null);
@@ -76,21 +77,39 @@ const Newsletter = () => {
     }
   }, [status]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email) return;
-    
-    setStatus('loading');
-    
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setEmail('');
-      
-      // Reset after success
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!email) return;
+
+  setStatus('loading');
+
+  try {
+    const { error } = await supabase
+      .from('newsletter_subscribers')
+      .insert([{ email }]);
+
+    if (error) {
+      if (error.code === '23505') {
+        alert('This email is already subscribed.');
+      } else {
+        console.error(error);
+        alert('Something went wrong. Try again.');
+      }
+      setStatus('idle');
+      return;
+    }
+
+    setStatus('success');
+    setEmail('');
+
+    setTimeout(() => setStatus('idle'), 5000);
+
+  } catch (err) {
+    console.error(err);
+    alert('Network error. Try again.');
+    setStatus('idle');
+  }
+};
 
   return (
     <div ref={containerRef} className="min-h-[80vh] pt-32 pb-20 relative flex items-center justify-center overflow-hidden">
