@@ -70,7 +70,7 @@ export default function RegisterModal({ isOpen, onClose }) {
               .
             </p>
           </div>
-          
+            <button type="button" className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full">Register Now</button>
           <p className="mt-6 text-center text-[10px] sm:text-xs text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
             Join the elite circle of African innovators.
           </p>
