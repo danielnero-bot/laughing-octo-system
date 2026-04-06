@@ -109,7 +109,7 @@ export default function Hero({ onRegisterClick }) {
       />
       
       {/* Overlay to handle theme contrast better */}
-      <div className="absolute inset-0 bg-linear-to-b from-(--bg-main) via-transparent to-(--bg-main) opacity-80 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-linear-to-b from-(--bg-main) via-transparent to-(--bg-main) opacity-60 transition-colors duration-500" />
 
       {/* Floating colour blobs */}
       <div

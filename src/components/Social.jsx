@@ -14,8 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const socials = [
   { platform: "Instagram", handle: "@youngtechiesafrica", href: "https://www.instagram.com/youngtechiesafrica", Icon: FaInstagram, color: "#E1306C", glow: "rgba(225,48,108,0.12)", desc: "Behind-the-scenes, highlights & reels from every festival.", followers: "1K+" },
-  { platform: "TikTok", handle: "@codeambassadors", href: "https://www.tiktok.com/@codeambassadors", Icon: FaTiktok, color: "#000000", glow: "rgba(0,0,0,0.08)", desc: "Short-form tech content, clips & trending moments.", followers: "1K+" },
-  { platform: "X / Twitter", handle: "@codeambassadors", href: "https://x.com/codeambassadors", Icon: FaXTwitter, color: "#0F1419", glow: "rgba(15,20,25,0.08)", desc: "Live updates, tech threads & festival announcements.", followers: "100+" },
+  { platform: "TikTok", handle: "@codeambassadors", href: "https://www.tiktok.com/@codeambassadors", Icon: FaTiktok, color: "var(--color-social-tiktok)", glow: "var(--color-social-tiktok)", desc: "Short-form tech content, clips & trending moments.", followers: "1K+" },
+  { platform: "X / Twitter", handle: "@codeambassadors", href: "https://x.com/codeambassadors", Icon: FaXTwitter, color: "var(--color-social-x)", glow: "var(--color-social-x)", desc: "Live updates, tech threads & festival announcements.", followers: "100+" },
   { platform: "Facebook", handle: "Young Techies Africa", href: "https://www.facebook.com/youngtechiesafrica", Icon: FaFacebook, color: "#1877F2", glow: "rgba(24,119,242,0.12)", desc: "Community posts, event details & parent updates.", followers: "100+" },
   { platform: "LinkedIn", handle: "Code Ambassadors", href: "https://www.linkedin.com/company/codeambassadors", Icon: FaLinkedin, color: "#0A66C2", glow: "rgba(10,102,194,0.12)", desc: "Professional updates, partnership & impact stories.", followers: "600+" },
   { platform: "YouTube", handle: "Code Ambassadors", href: "https://www.youtube.com/@codeambassadors", Icon: FaYoutube, color: "#FF0000", glow: "rgba(255,0,0,0.12)", desc: "Full talk recordings, tutorials & festival replays.", followers: "300+" },

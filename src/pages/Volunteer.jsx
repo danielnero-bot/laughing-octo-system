@@ -20,6 +20,9 @@ const Volunteer = () => {
     houseAddress: "",
     email: "",
     whatsapp: "",
+    gender: "",
+    socialMedia: "",
+    unit: "",
     tshirtSize: ""
   });
 
@@ -102,6 +105,9 @@ const Volunteer = () => {
           house_address: formData.houseAddress,
           email: formData.email,
           whatsapp: formData.whatsapp,
+          gender: formData.gender,
+          social_media: formData.socialMedia,
+          unit: formData.unit,
           tshirt_size: formData.tshirtSize
         }
       ]);
@@ -227,14 +233,53 @@ const Volunteer = () => {
                   placeholder="WhatsApp Number"
                   value={formData.whatsapp}
                   onChange={handleChange}
-                  className="p-4 rounded-xl border"
+                  className="p-4 rounded-xl border bg-transparent"
                 />
+                
+                <select
+                  name="gender"
+                  required
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className="p-4 pr-10 rounded-xl border bg-transparent text-(--text-main) appearance-auto"
+                >
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other / Prefer not to say</option>
+                </select>
+
+                <input
+                  type="text"
+                  name="socialMedia"
+                  required
+                  placeholder="Social Media (IG/X Handle)"
+                  value={formData.socialMedia}
+                  onChange={handleChange}
+                  className="p-4 rounded-xl border bg-transparent"
+                />
+
+                <select
+                  name="unit"
+                  required
+                  value={formData.unit}
+                  onChange={handleChange}
+                  className="p-4 pr-10 rounded-xl border bg-transparent text-(--text-main) appearance-auto"
+                >
+                  <option value="">Preferred Volunteer Unit</option>
+                  <option value="Media">Media</option>
+                  <option value="Security">Security</option>
+                  <option value="Registration">Registration</option>
+                  <option value="Crowd Control">Crowd Control</option>
+                  <option value="Protocol">Protocol</option>
+                  <option value="Anywhere">I can fit anywhere</option>
+                </select>
 
                 <select
                   name="tshirtSize"
                   value={formData.tshirtSize}
                   onChange={handleChange}
-                  className="p-4 rounded-xl border"
+                  className="p-4 pr-10 rounded-xl border bg-transparent text-(--text-main) appearance-auto"
                 >
                   <option value="">T-Shirt Size</option>
                   <option>S</option>

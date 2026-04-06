@@ -42,7 +42,7 @@ export default function RegisterModal({ isOpen, onClose }) {
     >
       <div
         ref={contentRef}
-        className="relative w-full sm:max-w-lg md:max-w-2xl bg-(--bg-main) border border-(--stat-card-border) rounded-t-[28px] sm:rounded-[32px] shadow-(--shadow-main) overflow-y-auto no-scrollbar sm:overflow-hidden max-h-[92dvh] sm:max-h-none transition-all duration-500"
+        className="relative w-full sm:max-w-lg md:max-w-xl bg-(--bg-main) border border-(--stat-card-border) rounded-t-[28px] sm:rounded-[32px] shadow-(--shadow-main) overflow-y-auto no-scrollbar sm:overflow-hidden max-h-[92dvh] sm:max-h-none transition-all duration-500"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute -top-20 -right-20 w-48 h-48 sm:w-64 sm:h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
@@ -54,24 +54,42 @@ export default function RegisterModal({ isOpen, onClose }) {
         >
           <IoClose size={22} />
         </button>
-        <div className="relative px-6 py-8 sm:p-10 md:p-14">
-          <div className="mb-7 sm:mb-10">
+        <div className="relative px-6 py-8 sm:p-10 md:p-12">
+          <div className="mb-7 sm:mb-10 text-center sm:text-left">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20 transition-colors duration-500">
+              Open Selection • Edition 5.0
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-(--text-main) mb-3 leading-tight tracking-tight transition-colors duration-500">
-              Ready for the <br />
+              Become the <br />
               <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
-                Next Wave?
+                Face of the Festival
               </span>
             </h2>
-            <p className="text-(--text-muted) text-base sm:text-lg font-light leading-relaxed transition-colors duration-500">
-              Join 500+ tech visionaries at the{" "}
-              <span className="text-(--text-main) font-bold transition-colors">
-                Young Techies Festival 2026
-              </span>
-              .
+            <p className="text-(--text-muted) text-base sm:text-lg font-light leading-relaxed transition-colors duration-500 max-w-md">
+              We're looking for the next generation of tech leaders to represent our biggest edition yet. Ready to inspire?
             </p>
           </div>
-            <button type="button" className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded w-full">Register Now</button>
-          <p className="mt-6 text-center text-[10px] sm:text-xs text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
+          
+          <div className="space-y-4">
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdqh3rovwfmaSu1iZlmiwyqFZyW7inyYkgDEOk_7tDMt8PBRg/viewform?fbzx=-2992123522595296044" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 bg-primary hover:bg-secondary text-white font-black text-sm sm:text-base uppercase tracking-widest rounded-2xl transition-all duration-300 transform active:scale-95 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary/40"
+            >
+              Apply Now
+              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </a>
+            
+            <button 
+              onClick={onClose}
+              className="w-full py-4 px-6 border border-(--stat-card-border) text-(--text-main) font-bold text-xs uppercase tracking-widest rounded-2xl hover:bg-slate-500/5 dark:hover:bg-white/5 transition-all duration-300"
+            >
+              Maybe later
+            </button>
+          </div>
+
+          <p className="mt-8 text-center text-[10px] sm:text-xs text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
             Join the elite circle of African innovators.
           </p>
         </div>
@@ -79,3 +97,4 @@ export default function RegisterModal({ isOpen, onClose }) {
     </div>
   );
 }
+

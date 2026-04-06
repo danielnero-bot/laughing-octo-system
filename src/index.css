@@ -29,6 +29,8 @@
     --glow-opacity: 0.08;
     --brightness-logo: 0.2;
     --shadow-main: 0 8px 32px rgba(0, 0, 0, 0.03);
+    --color-social-tiktok: #000000;
+    --color-social-x: #0F1419;
 
     font-family: var(--font-display);
     line-height: 1.5;
@@ -59,6 +61,8 @@
     --glow-opacity: 0.15;
     --brightness-logo: 1;
     --shadow-main: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --color-social-tiktok: #ffffff;
+    --color-social-x: #ffffff;
     color-scheme: dark;
   }
 

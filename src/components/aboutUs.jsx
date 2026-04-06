@@ -111,7 +111,7 @@ export default function AboutFestival() {
             </h2>
             <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
               <p className="about-body text-lg text-(--text-muted) leading-relaxed font-light transition-colors duration-500">
-                Now in its 4th year, the <span className="text-(--text-main) font-bold transition-colors">Young Techies Festival</span> is West Africa’s premier stage for the next generation of builders.
+                Now in its 5th year, the <span className="text-(--text-main) font-bold transition-colors">Young Techies Festival</span> is West Africa’s premier stage for the next generation of builders.
               </p>
               <p className="about-body text-lg text-(--text-muted) leading-relaxed font-light transition-colors duration-500">
                 From <span className="text-secondary font-semibold">Web3 to Robotics</span>, we bring the world’s most exciting tech directly to the curious minds of today.
@@ -133,7 +133,7 @@ export default function AboutFestival() {
           </div>
           <div ref={videoRef} className="flex-1 w-full lg:w-auto relative px-2">
             <div className="relative aspect-video rounded-4xl overflow-hidden shadow-2xl ring-8 ring-(--stat-card-border) transition-all duration-500">
-              <iframe className="w-full h-full" src="https://www.youtube.com/embed/kUT6PHYWsrk" title="YTF Highlights" frameBorder="0" allowFullScreen />
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6mWJ-HDuFXg?si=Mh8eIOTneTt1hyHG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>
