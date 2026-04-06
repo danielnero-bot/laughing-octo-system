@@ -146,9 +146,9 @@ export default function Hero({ onRegisterClick }) {
               className="text-sm sm:text-base md:text-lg text-(--text-muted) max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed transition-colors duration-500"
             >
               Join thousands of creators at the intersection of{' '}
-              <span className="text-(--text-main) font-medium">Code</span>,{' '}
-              <span className="text-(--text-main) font-medium">Design</span>, and{' '}
-              <span className="text-(--text-main) font-medium">Future Tech</span>.
+              <span className="text-white font-medium">Code</span>,{' '}
+              <span className="text-white font-medium">Design</span>, and{' '}
+              <span className="text-white font-medium">Future Tech</span>.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">

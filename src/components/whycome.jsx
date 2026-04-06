@@ -144,7 +144,7 @@ export default function WhyCome({ onRegisterClick }) {
             technology.
           </p>
           <span className="text-sm text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
-            — Miss Chidinma Umumna
+            — Miss Chidinma Umunna
           </span>
         </div>
 

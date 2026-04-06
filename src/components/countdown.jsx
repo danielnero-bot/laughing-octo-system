@@ -74,25 +74,25 @@ export default function Countdown({ targetDate }) {
   return (
     <div ref={wrapperRef} role="timer" aria-live="polite" aria-label="Festival Countdown" className="grid grid-flow-col gap-3 sm:gap-5 text-center auto-cols-max justify-center">
       <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
-        <span className="countdown font-mono text-3xl sm:text-5xl">
+        <span className="countdown font-mono text-3xl sm:text-5xl font-bold">
           <span ref={(el) => { numberRefs.current["Days"] = el; }} style={{ "--value": timeLeft.days }} aria-live="polite" aria-label={`${timeLeft.days} days`}>{timeLeft.days}</span>
         </span>
         <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">days</span>
       </div>
       <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
-        <span className="countdown font-mono text-3xl sm:text-5xl">
+        <span className="countdown font-mono text-3xl sm:text-5xl font-bold">
           <span ref={(el) => { numberRefs.current["Hours"] = el; }} style={{ "--value": timeLeft.hours }} aria-live="polite" aria-label={`${timeLeft.hours} hours`}>{timeLeft.hours}</span>
         </span>
         <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">hours</span>
       </div>
       <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
-        <span className="countdown font-mono text-3xl sm:text-5xl">
+        <span className="countdown font-mono text-3xl sm:text-5xl font-bold">
           <span ref={(el) => { numberRefs.current["Mins"] = el; }} style={{ "--value": timeLeft.minutes }} aria-live="polite" aria-label={`${timeLeft.minutes} minutes`}>{timeLeft.minutes}</span>
         </span>
         <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">min</span>
       </div>
       <div className="flex flex-col items-center justify-center p-3 sm:p-5 glass-card rounded-2xl sm:rounded-3xl shadow-sm min-w-[70px] sm:min-w-[90px]">
-        <span className="countdown font-mono text-3xl sm:text-5xl">
+        <span className="countdown font-mono text-3xl sm:text-5xl font-bold">
           <span ref={(el) => { numberRefs.current["Secs"] = el; }} style={{ "--value": timeLeft.seconds }} aria-live="polite" aria-label={`${timeLeft.seconds} seconds`}>{timeLeft.seconds}</span>
         </span>
         <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-(--text-muted) mt-1.5 sm:mt-2">sec</span>
