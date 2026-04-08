@@ -109,8 +109,8 @@ export default function Hero({ onRegisterClick }) {
             backgroundSize: 'cover',
           }}
         />
-        {/* Consistent dark overlay for that cinematic look across themes */}
-        <div className="absolute inset-0 bg-linear-to-b from-slate-950/80 via-transparent to-slate-950/90" />
+        {/* Theme-responsive overlay: White/Light in light mode, Dark Navy in dark mode */}
+        <div className="absolute inset-0 bg-linear-to-b from-white/70 via-transparent to-white/90 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/90 transition-colors duration-500" />
       </div>
 
       {/* Floating colour blobs */}
@@ -128,14 +128,14 @@ export default function Hero({ onRegisterClick }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 items-center">
 
           {/* Left — text with protective glass card */}
-          <div className="text-center md:text-left relative p-8 sm:p-10 md:p-12 rounded-[40px] bg-(--bg-main)/80 dark:bg-black/40 backdrop-blur-xl shadow-2xl transition-all duration-500">
+          <div className="text-center md:text-left relative p-8 sm:p-10 md:p-12 rounded-[40px] bg-white/40 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-2xl transition-all duration-500">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/5 dark:bg-white/5 border border-slate-500/10 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-primary mb-5 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               July 11· 2026
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight tracking-tighter">
-              <div ref={title1Ref} className="text-white transition-colors duration-500">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
+              <div ref={title1Ref} className="text-(--text-main) transition-colors duration-500">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
               <div ref={title2Ref} className="text-primary italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
                 A bold celebration where young innovators shape the future.
               </div>
@@ -146,9 +146,9 @@ export default function Hero({ onRegisterClick }) {
               className="text-sm sm:text-base md:text-lg text-(--text-muted) max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed transition-colors duration-500"
             >
               Join thousands of creators at the intersection of{' '}
-              <span className="text-white font-medium">Code</span>,{' '}
-              <span className="text-white font-medium">Design</span>, and{' '}
-              <span className="text-white font-medium">Future Tech</span>.
+              <span className="text-(--text-main) font-medium">Code</span>,{' '}
+              <span className="text-(--text-main) font-medium">Design</span>, and{' '}
+              <span className="text-(--text-main) font-medium">Future Tech</span>.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">

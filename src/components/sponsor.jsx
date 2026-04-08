@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
+import { GoArrowUpRight } from "react-icons/go";
 import KeepingItRealFoundation from "../assets/Keeping-It-Real-Foundation-scaled-e1684861858536-1024x471-removebg-preview.png";
 import CESA from "../assets/CESA-LOGO-removebg-preview.png";
 import Ntel from "../assets/Ntel_logo-removebg-preview.png";
@@ -24,6 +26,7 @@ export default function Sponsor() {
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const trackRef = useRef(null);
+  const ctaRef = useRef(null);
   const dividerTopRef = useRef(null);
   const dividerBotRef = useRef(null);
 
@@ -32,6 +35,7 @@ export default function Sponsor() {
       gsap.fromTo([dividerTopRef.current, dividerBotRef.current], { scaleX: 0, transformOrigin: 'left center' }, { scaleX: 1, duration: 1.2, ease: 'expo.out', stagger: 0.1, scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true } });
       gsap.fromTo(headerRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: headerRef.current, start: 'top 85%', once: true } });
       gsap.fromTo(trackRef.current, { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: trackRef.current, start: 'top 90%', once: true } });
+      gsap.fromTo(ctaRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: ctaRef.current, start: 'top 85%', once: true } });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -57,7 +61,7 @@ export default function Sponsor() {
           </p>
         </div>
 
-        <div ref={trackRef} className="relative overflow-hidden">
+        <div ref={trackRef} className="relative overflow-hidden mb-16 sm:mb-24">
           <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-28 z-10 bg-gradient-to-r from-[var(--section-alt-bg)] to-transparent pointer-events-none transition-colors duration-500" />
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-28 z-10 bg-gradient-to-l from-[var(--section-alt-bg)] to-transparent pointer-events-none transition-colors duration-500" />
 
@@ -67,6 +71,28 @@ export default function Sponsor() {
                 <img src={sponsor.src} alt={sponsor.name} className="max-w-full max-h-full object-contain brightness-[0.8] dark:brightness-100 dark:hover:brightness-110 group-hover:brightness-100 transition-all duration-500" />
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Call to Action Section */}
+        <div ref={ctaRef} className="max-w-4xl mx-auto">
+          <div className="relative p-8 sm:p-12 rounded-[2.5rem] bg-[var(--bg-main)] border border-[var(--stat-card-border)] shadow-xl overflow-hidden group hover:border-primary/30 transition-all duration-500 text-center">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-pink/5 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none" />
+            
+            <h3 className="text-2xl sm:text-3xl font-black mb-4 relative z-10 text-[var(--text-main)] transition-colors">
+              Partner with Us
+            </h3>
+            <p className="text-[var(--text-muted)] text-sm sm:text-lg mb-10 max-w-2xl mx-auto relative z-10 font-light transition-colors">
+              Join the movement and help us shape the future of African technology. We have various sponsorship tiers designed to amplify your brand impact.
+            </p>
+            <Link 
+              to="/sponsor" 
+              className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-secondary transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/20"
+            >
+              Become a Sponsor
+              <GoArrowUpRight className="text-xl" />
+            </Link>
           </div>
         </div>
       </div>
@@ -81,4 +107,4 @@ export default function Sponsor() {
       `}</style>
     </section>
   );
-}
+}

@@ -68,7 +68,7 @@ export default function App() {
     { 
       label: "Join Us", 
       links: [ 
-        { label: "Register", href: "/register" }, 
+        { label: "Register", href: "/" }, 
         { label: "Sponsorship", href: "/sponsor" }, 
         { label: "Volunteer", href: "/volunteer" },
         { label: "Newsletter", href: "/newsletter" }

@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const reasons = [
+// ... existing reasons ...
   {
     icon: "🚀",
     title: "Launch Your Tech Journey",
@@ -49,7 +50,16 @@ const reasons = [
   },
 ];
 
+const quotes = [
+  { text: "Every kid who walks through those doors walks out thinking differently about what they can build with technology.", author: "Miss Chidinma Umunna" },
+  { text: "The future isn't something we wait for, it's something we build together at the Young Techies Festival.", author: "Sir Victor Ejeh" },
+  { text: "West Africa's boldest gathering of young builders and thinkers is where your next big idea takes flight.", author: "Mr. Somkenechukwu Mamah" },
+  { text: "Empowering the next generation to not just use technology, but to master it and solve real-world problems.", author: "Mr. Chinedu Okonkwo" },
+  { text: "Innovation has no age limit. Witness the power of youth-led technology at Young Techies 2026.", author: "Mr. Victor Ogujieofor" }
+];
+
 export default function WhyCome({ onRegisterClick }) {
+  const [activeQuote] = useState(() => quotes[Math.floor(Math.random() * quotes.length)]);
   const sectionRef  = useRef(null);
   const badgeRef    = useRef(null);
   const headingRef  = useRef(null);
@@ -137,14 +147,13 @@ export default function WhyCome({ onRegisterClick }) {
           ))}
         </div>
 
-        <div ref={quoteRef} className="relative mb-20 sm:mb-28 mx-auto max-w-4xl text-center px-4">
+        <div ref={quoteRef} className="relative mb-20 sm:mb-28 mx-auto max-w-4xl text-center px-4 min-h-[160px] sm:min-h-[200px] flex flex-col justify-center">
           <span className="text-6xl sm:text-8xl text-slate-500/10 font-black leading-none select-none">"</span>
           <p className="text-xl sm:text-2xl md:text-3xl font-black text-(--text-main) leading-snug -mt-8 mb-4 transition-colors duration-500">
-            Every kid who walks through those doors walks out thinking differently about what they can build with
-            technology.
+            {activeQuote.text}
           </p>
           <span className="text-sm text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
-            — Miss Chidinma Umunna
+            — {activeQuote.author}
           </span>
         </div>
 

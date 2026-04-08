@@ -1,47 +1,34 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TechFest from "../assets/techfest.jpeg"
+import Hackathon from "../assets/hackathon.jpeg"
+import Exhibition from "../assets/exhibition.jpeg"
 
 gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   {
-    icon: "⚡",
-    tag: "WORKSHOPS",
-    title: "Hands-On Labs",
-    description:
-      "Get your hands dirty with real tools — build robots, wire circuits, code apps, and create with AI under guidance from industry experts.",
-    items: ["Robotics & IoT", "AI Prototyping", "Web & App Dev", "3D Printing"],
+    title: "Workshops",
+    backgroundImage: 'https://youngtechies.africa/wp-content/uploads/2023/04/ARM_4723-1.png',
     color: "#0077FF",
     glow: "rgba(0, 119, 255, 0.1)",
   },
   {
-    icon: "🎤",
-    tag: "TECH TALKS",
-    title: "Inspiring Speakers",
-    description:
-      "Hear from Africa's brightest tech minds, founders, and innovators who started exactly where you are — and built something extraordinary.",
-    items: ["Keynote Sessions", "Startup Stories", "Career Pathways", "Future Tech"],
+    title: "Tech Talks",
+    backgroundImage: TechFest,
     color: "#D400FF",
     glow: "rgba(212, 0, 255, 0.1)",
   },
   {
-    icon: "🏆",
-    tag: "CHALLENGES",
-    title: "Competitions",
-    description:
-      "Put your skills to the test in live challenges. Compete, collaborate, and showcase your creativity to win amazing prizes and recognition.",
-    items: ["Hackathon", "Robotics Race" ],
+    title: "Hackathon",
+    backgroundImage: Hackathon,
     color: "#FFB000",
     glow: "rgba(255, 176, 0, 0.1)",
   },
   {
-    icon: "🥽",
-    tag: "EXPERIENCES",
-    title: "Immersive Zones",
-    description:
-      "Step into the future with VR worlds, AR demos, drone flights, and cutting-edge technology experiences you won't find anywhere else.",
-    items: ["VR / AR Alley" , "Gaming Arena", "Innovation Hub"],
+    title: "Exhibitions",
+    backgroundImage: Exhibition,
     color: "#0045FF",
     glow: "rgba(0, 69, 255, 0.1)",
   },
@@ -111,10 +98,10 @@ export default function AboutFestival() {
             </h2>
             <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
               <p className="about-body text-lg text-(--text-muted) leading-relaxed font-light transition-colors duration-500">
-                Now in its 5th year, the <span className="text-(--text-main) font-bold transition-colors">Young Techies Festival</span> is West Africa’s premier stage for the next generation of builders.
+                <span className="text-(--text-main) font-bold transition-colors">Young Techies Festival</span> is an annual festival to provide a platform for young minds (age 8-17 years) to be exposed, inspired and equipped with tech skills that will mobilize them for the future workforce. 
               </p>
               <p className="about-body text-lg text-(--text-muted) leading-relaxed font-light transition-colors duration-500">
-                From <span className="text-secondary font-semibold">Web3 to Robotics</span>, we bring the world’s most exciting tech directly to the curious minds of today.
+                From <span className="text-secondary font-semibold">Robotics and AI to Virtual Reality and IOT</span>, we put  the world’s most exciting technologiesin the hands of the curiousminds of today.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6 mt-12">
@@ -156,18 +143,24 @@ export default function AboutFestival() {
           </div>
           <div className="categories-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {categories.map((cat) => (
-              <div key={cat.tag} className="cat-card group relative flex flex-col gap-6 p-8 rounded-[2.5rem] bg-(--bg-main) border border-(--stat-card-border) transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 overflow-hidden">
-                <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-sm bg-slate-500/5 dark:bg-white/5" style={{ borderColor: `${cat.color}20`, borderWidth: '1px' }}>{cat.icon}</div>
-                  <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: `${cat.color}15`, color: cat.color, border: `1px solid ${cat.color}30` }}>{cat.tag}</span>
-                </div>
-                <h3 className="text-xl font-bold text-(--text-main) group-hover:text-primary transition-colors duration-500">{cat.title}</h3>
-                <p className="text-(--text-muted) text-sm leading-relaxed font-light transition-colors duration-500">{cat.description}</p>
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {cat.items.map((item) => (
-                    <span key={item} className="text-[11px] font-semibold px-3 py-1.5 rounded-xl bg-(--section-alt-bg) border border-(--stat-card-border) text-(--text-muted) transition-colors duration-500">{item}</span>
-                  ))}
-                </div>
+              <div 
+                key={cat.title} 
+                className="cat-card group relative flex flex-col justify-end p-8 min-h-[300px] rounded-[2.5rem] border border-(--stat-card-border) transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 overflow-hidden"
+              >
+                {/* Background Image with Dark Overlay for readability */}
+                <div 
+                  className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110"
+                  style={{ 
+                    backgroundImage: `url(${cat.backgroundImage})`, 
+                    backgroundSize: 'cover', 
+                    backgroundPosition: 'center' 
+                  }}
+                />
+                <div className="absolute inset-0 z-1 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+
+                <h3 className="relative z-10 text-xl font-bold text-white group-hover:text-primary transition-colors duration-500">
+                  {cat.title}
+                </h3>
               </div>
             ))}
           </div>
