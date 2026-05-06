@@ -69,7 +69,7 @@ export default function RegisterModal({ isOpen, onClose }) {
           
           <div className="space-y-4">
             <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdqh3rovwfmaSu1iZlmiwyqFZyW7inyYkgDEOk_7tDMt8PBRg/viewform?fbzx=-2992123522595296044" 
+              href="https://www.eventbrite.com/e/young-techies-festival-2026-fifth-edition-tickets-1988912952180?aff=oddtdtcreator" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 bg-primary hover:bg-secondary text-white font-black text-sm sm:text-base uppercase tracking-widest rounded-2xl transition-all duration-300 transform active:scale-95 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary/40"

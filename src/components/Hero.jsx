@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Countdown from './countdown';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,7 +158,7 @@ export default function Hero({ onRegisterClick }) {
                 className="group relative px-7 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-2xl text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10">Get Your Ticket</span>
+                <a href='https://www.eventbrite.com/e/young-techies-festival-2026-fifth-edition-tickets-1988912952180?aff=oddtdtcreator' target='_blank' rel='noopener noreferrer' className="relative z-10">Get Your Ticket</a>
               </button>
               <button className="px-6 py-3.5 border-2 border-slate-950 text-slate-950 rounded-2xl text-sm sm:text-base bg-white/10 hover:bg-slate-950 hover:text-white transition-all duration-300 font-bold">
                 Learn More
