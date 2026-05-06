@@ -56,14 +56,17 @@ export default function RegisterModal({ isOpen, onClose }) {
         </button>
         <div className="relative px-6 py-8 sm:p-10 md:p-12">
           <div className="mb-7 sm:mb-10 text-center sm:text-left">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20 transition-colors duration-500">
+              REGISTRATION • YTF 5.0
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-(--text-main) mb-3 leading-tight tracking-tight transition-colors duration-500">
-              Secure Your  <br />
+              Beyond Walls <br />
               <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
-                Spot at the Festival
+                with AI
               </span>
             </h2>
             <p className="text-(--text-muted) text-base sm:text-lg font-light leading-relaxed transition-colors duration-500 max-w-md">
-              Don't miss out on the opportunity to be part of Africa's premier innovation event. Join the elite circle of African innovators.
+              Join the biggest kids tech event in South-South Nigeria and discover how AI, creativity, and innovation can help you build the future.
             </p>
           </div>
           
@@ -74,13 +77,19 @@ export default function RegisterModal({ isOpen, onClose }) {
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 bg-primary hover:bg-secondary text-white font-black text-sm sm:text-base uppercase tracking-widest rounded-2xl transition-all duration-300 transform active:scale-95 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary/40"
             >
-              Get Your Free Seat
+              Register Now
               <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </a>
+            <button 
+              onClick={onClose}
+              className="w-full py-4 px-6 border border-(--stat-card-border) text-(--text-main) font-bold text-xs uppercase tracking-widest rounded-2xl hover:bg-slate-500/5 dark:hover:bg-white/5 transition-all duration-300"
+            >
+              MAYBE LATER
+            </button>
           </div>
 
           <p className="mt-8 text-center text-[10px] sm:text-xs text-(--text-muted) uppercase tracking-widest font-semibold transition-colors duration-500">
-            Join the elite circle of African innovators.
+            For kids & teens ages 8–17.
           </p>
         </div>
       </div>

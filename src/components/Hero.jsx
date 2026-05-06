@@ -117,11 +117,11 @@ export default function Hero({ onRegisterClick }) {
       {/* Floating colour blobs */}
       <div
         ref={el => shapesRef.current[0] = el}
-        className="absolute top-1/4 -left-20 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary/20 rounded-full blur-[120px] sm:blur-[140px] pointer-events-none"
+        className="absolute top-1/4 -left-20 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#25AAE2]/20 rounded-full blur-[120px] sm:blur-[140px] pointer-events-none"
       />
       <div
         ref={el => shapesRef.current[1] = el}
-        className="absolute bottom-1/4 -right-20 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-pink/15 rounded-full blur-[130px] sm:blur-[160px] pointer-events-none"
+        className="absolute bottom-1/4 -right-20 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#D400FF]/15 rounded-full blur-[130px] sm:blur-[160px] pointer-events-none"
       />
 
       {/* Main content */}
@@ -138,7 +138,7 @@ export default function Hero({ onRegisterClick }) {
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight tracking-tighter">
               <div ref={title1Ref} className="text-[#25AAE2] dark:text-white">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
-              <div ref={title2Ref} className="text-secondary italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
+              <div ref={title2Ref} className="text-black dark:text-white italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
                 A bold celebration where young innovators shape the future.
               </div>
             </h1>
@@ -156,9 +156,9 @@ export default function Hero({ onRegisterClick }) {
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
               <button
                 onClick={onRegisterClick}
-                className="group relative px-7 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-2xl text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+                className="group relative px-7 py-3.5 bg-[#25AAE2] text-white font-bold rounded-2xl text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#25AAE2] to-[#0045FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <a href='https://www.eventbrite.com/e/young-techies-festival-2026-fifth-edition-tickets-1988912952180?aff=oddtdtcreator' target='_blank' rel='noopener noreferrer' className="relative z-10">Get Your Free Ticket</a>
               </button>
               <button className="px-6 py-3.5 border-2 border-slate-950 text-slate-950 rounded-2xl text-sm sm:text-base bg-white/10 hover:bg-slate-950 hover:text-white transition-all duration-300 font-bold">
