@@ -74,7 +74,7 @@ export default function RegisterModal({ isOpen, onClose }) {
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 bg-primary hover:bg-secondary text-white font-black text-sm sm:text-base uppercase tracking-widest rounded-2xl transition-all duration-300 transform active:scale-95 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary/40"
             >
-              Get Now
+              Get Your Free Seat
               <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </a>
           </div>

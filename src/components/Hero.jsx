@@ -129,14 +129,15 @@ export default function Hero({ onRegisterClick }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 items-center">
 
           {/* Left — text with vibrant yellow background */}
-          <div className="text-center md:text-left relative p-8 sm:p-10 md:p-12 rounded-[40px] bg-accent-yellow border-2 bobrder-slate-950 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-500">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/10 border border-slate-950/20 text-[10px] font-bold uppercase tracking-widest text-slate-900 mb-5">
+                    <div className="text-center md:text-left relative p-8 sm:p-10 md:p-12 rounded-[40px] bg-white/40 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-2xl transition-all duration-500">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/5 dark:bg-white/5 border border-slate-500/10 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-primary mb-5 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+
               July 11· 2026
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight tracking-tighter">
-              <div ref={title1Ref} className="text-slate-950">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
+              <div ref={title1Ref} className="text-[#25AAE2] dark:text-white">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
               <div ref={title2Ref} className="text-secondary italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
                 A bold celebration where young innovators shape the future.
               </div>
@@ -158,7 +159,7 @@ export default function Hero({ onRegisterClick }) {
                 className="group relative px-7 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-2xl text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <a href='https://www.eventbrite.com/e/young-techies-festival-2026-fifth-edition-tickets-1988912952180?aff=oddtdtcreator' target='_blank' rel='noopener noreferrer' className="relative z-10">Get Your Ticket</a>
+                <a href='https://www.eventbrite.com/e/young-techies-festival-2026-fifth-edition-tickets-1988912952180?aff=oddtdtcreator' target='_blank' rel='noopener noreferrer' className="relative z-10">Get Your Free Ticket</a>
               </button>
               <button className="px-6 py-3.5 border-2 border-slate-950 text-slate-950 rounded-2xl text-sm sm:text-base bg-white/10 hover:bg-slate-950 hover:text-white transition-all duration-300 font-bold">
                 Learn More
