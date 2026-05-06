@@ -127,28 +127,28 @@ export default function Hero({ onRegisterClick }) {
       <div className="hero-content relative z-10 max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 items-center">
 
-          {/* Left — text with protective glass card */}
-          <div className="text-center md:text-left relative p-8 sm:p-10 md:p-12 rounded-[40px] bg-white/40 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-2xl transition-all duration-500">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/5 dark:bg-white/5 border border-slate-500/10 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest text-primary mb-5 backdrop-blur-sm">
+          {/* Left — text with vibrant yellow background */}
+          <div className="text-center md:text-left relative p-8 sm:p-10 md:p-12 rounded-[40px] bg-accent-yellow border-2 bobrder-slate-950 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-500">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/10 border border-slate-950/20 text-[10px] font-bold uppercase tracking-widest text-slate-900 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               July 11· 2026
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight tracking-tighter">
-              <div ref={title1Ref} className="text-(--text-main) transition-colors duration-500">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
-              <div ref={title2Ref} className="text-primary italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
+              <div ref={title1Ref} className="text-slate-950">YOUNG TECHIES<br className="hidden lg:block" /> FESTIVAL</div>
+              <div ref={title2Ref} className="text-secondary italic text-base sm:text-lg md:text-2xl mt-2 font-medium tracking-wider">
                 A bold celebration where young innovators shape the future.
               </div>
             </h1>
 
             <p
               ref={descRef}
-              className="text-sm sm:text-base md:text-lg text-(--text-muted) max-w-xl mx-auto md:mx-0 mb-8 font-light leading-relaxed transition-colors duration-500"
+              className="text-sm sm:text-base md:text-lg text-slate-800 max-w-xl mx-auto md:mx-0 mb-8 font-medium leading-relaxed"
             >
               Join thousands of creators at the intersection of{' '}
-              <span className="text-(--text-main) font-medium">Code</span>,{' '}
-              <span className="text-(--text-main) font-medium">Design</span>, and{' '}
-              <span className="text-(--text-main) font-medium">Future Tech</span>.
+              <span className="text-slate-950 font-bold underline decoration-slate-950/30">Code</span>,{' '}
+              <span className="text-slate-950 font-bold underline decoration-slate-950/30">Design</span>, and{' '}
+              <span className="text-slate-950 font-bold underline decoration-slate-950/30">Future Tech</span>.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
@@ -159,7 +159,7 @@ export default function Hero({ onRegisterClick }) {
                 <div className="absolute inset-0 bg-gradient-to-r from-accent-pink to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative z-10">Get Your Ticket</span>
               </button>
-              <button className="px-6 py-3.5 border border-slate-200 dark:border-white/20 text-slate-700 dark:text-white rounded-2xl text-sm sm:text-base bg-white/10 backdrop-blur-sm dark:bg-white/5 shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 transition-colors duration-300">
+              <button className="px-6 py-3.5 border-2 border-slate-950 text-slate-950 rounded-2xl text-sm sm:text-base bg-white/10 hover:bg-slate-950 hover:text-white transition-all duration-300 font-bold">
                 Learn More
               </button>
             </div>
