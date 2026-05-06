@@ -19,7 +19,7 @@ body {
   --color-tech-dark: #050510;
   --color-tech-white: #F8FAFC;
   
-  --font-display: "Raleway", "Inter", system-ui, sans-serif;
+  --font-display: "MyCustomFont", "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 

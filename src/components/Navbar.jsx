@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import ThemeToggle from './ThemeToggle';
-import brandLogo from "../assets/image.png";
+import brandLogo from "../assets/YTF Logo-1.png";
 import { Link } from 'react-router-dom';
 
 
@@ -162,7 +162,7 @@ const CardNav = ({
           </div>
 
           <Link to="/" className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-            <img src={logo} alt={logoAlt} className="logo h-[28px] transition-all duration-500" />
+            <img src={logo} alt={logoAlt} className="logo h-[52px] w-auto transition-all duration-500" />
           </Link>
 
           <div

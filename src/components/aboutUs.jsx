@@ -91,9 +91,9 @@ export default function AboutFestival() {
               About the Festival
             </div>
             <h2 className="about-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-8 text-(--text-main) transition-colors duration-500">
-              The Hub of <br />
+              The Mission<br />
               <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Young Innovation.
+                Why We Exist
               </span>
             </h2>
             <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
