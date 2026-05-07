@@ -1,10 +1,28 @@
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./ 
-          port: 21  # Standard FTP port
-          # Add extra timeout if the connection is slow
-          timeout: 60000 
+name: Deploy to cPanel via IP
+
+on:
+  push:
+    branches:
+      - main  # Make sure this matches your default branch name
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        # Use the Shared IP address you added to Secrets
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # Explicitly set port 21 for standard FTP
+        port: 21
+        # Relative path in cPanel; usually './' or 'public_html/'
+        server-dir: ./
+        # Adds extra time for the connection to establish
+        timeout: 60000
