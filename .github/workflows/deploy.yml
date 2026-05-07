@@ -23,6 +23,6 @@ jobs:
         # Explicitly set port 21 for standard FTP
         port: 21
         # Relative path in cPanel; usually './' or 'public_html/'
-        server-dir: ./youngtechies.africa
+        server-dir: public_html/youngtechies.africa/
         # Adds extra time for the connection to establish
         timeout: 60000
