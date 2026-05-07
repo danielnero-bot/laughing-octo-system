@@ -42,7 +42,7 @@ export default function RegisterModal({ isOpen, onClose }) {
     >
       <div
         ref={contentRef}
-        className="relative w-full sm:max-w-lg md:max-w-xl bg-(--bg-main) border border-(--stat-card-border) rounded-t-[28px] sm:rounded-[32px] shadow-(--shadow-main) overflow-y-auto no-scrollbar sm:overflow-hidden max-h-[92dvh] sm:max-h-none transition-all duration-500"
+        className="relative w-full sm:max-w-lg md:max-w-xl bg-(--bg-main) border border-(--stat-card-border) rounded-t-[28px] sm:rounded-[32px] shadow-(--shadow-main) max-h-[92dvh] sm:max-h-none transition-all duration-500"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute -top-20 -right-20 w-48 h-48 sm:w-64 sm:h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
