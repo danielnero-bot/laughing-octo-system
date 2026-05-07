@@ -1,9 +1,9 @@
-name: Deploy to cPanel via IP
+name: Deploy to cPanel
 
 on:
   push:
     branches:
-      - main  # Make sure this matches your default branch name
+      - main
 
 jobs:
   web-deploy:
@@ -16,13 +16,10 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        # Use the Shared IP address you added to Secrets
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # Explicitly set port 21 for standard FTP
         port: 21
-        # Relative path in cPanel; usually './' or 'public_html/'
-        server-dir: /
-        # Adds extra time for the connection to establish
+        # This path takes the 'chimaibe' user into your site folder
+        server-dir: public_html/youngtechies.africa/
         timeout: 60000
