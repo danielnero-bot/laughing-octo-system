@@ -121,7 +121,7 @@ export default function AboutFestival() {
           </div>
           <div ref={videoRef} className="flex-1 w-full lg:w-auto relative px-2">
             <div className="relative aspect-video rounded-4xl overflow-hidden shadow-2xl ring-8 ring-(--stat-card-border) transition-all duration-500">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6mWJ-HDuFXg?si=Mh8eIOTneTt1hyHG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/n72SjX-dlVY?si=GYNLah6qyzb5Gx8N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </div>
