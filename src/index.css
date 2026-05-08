@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('/src/assets/fonts/RationalDisplayDEMO-Light.woff') format('woff');
+  src: url('/src/assets/fonts/Intro.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap; /* prevents invisible text while loading */

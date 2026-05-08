@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Countdown from './countdown';
 import { Link } from 'react-router-dom';
+import heroBg from '../assets/IMG_9972.jpg.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +106,7 @@ export default function Hero({ onRegisterClick }) {
         <div 
           className="absolute inset-0 opacity-70"
           style={{
-            backgroundImage: "url('https://youngtechies.africa/wp-content/uploads/2025/11/IMG_9972.jpg')",
+            backgroundImage: `url(${heroBg})`,
             backgroundPosition: 'center center',
             backgroundSize: 'cover',
           }}

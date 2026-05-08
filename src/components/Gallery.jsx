@@ -6,12 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const photos = [
-  { src: "https://youngtechies.africa/wp-content/uploads/2025/11/IMG_9972.jpg", alt: "Festival atmosphere", span: "col-span-2 row-span-2" },
-  { src: "https://youngtechies.africa/wp-content/uploads/2023/04/ARM_4723-1.png", alt: "Hands-on workshop", span: "" },
-  { src: "../", alt: "Robotics session", span: "" },
-  { src: "https://youngtechies.africa/wp-content/uploads/2023/04/ARM_4723-1.png", alt: "Tech demo", span: "col-span-2" },
-  { src: "https://youngtechies.africa/wp-content/uploads/2023/04/ARM_4723-1.png", alt: "Innovators at work", span: "" },
-  { src: "https://youngtechies.africa/wp-content/uploads/2023/04/ARM_4723-1.png", alt: "Collaboration", span: "" },
+  { src: "../assets/IMG_9972.jpg.jpeg", alt: "Festival atmosphere", span: "col-span-2 row-span-2" },
+  { src: "../assets/IMG_9972.jpg.jpeg", alt: "Hands-on workshop", span: "" },
+  { src: "../assets/IMG_9999.jpg.jpeg", alt: "Robotics session", span: "" },
+  { src: "../assets/IMG_9960.jpg.jpeg", alt: "Tech demo", span: "col-span-2" },
+  { src: "../assets/IMG_9957.jpg.jpeg", alt: "Innovators at work", span: "" },
+  { src: "../assets/IMG_9971.jpg.jpeg", alt: "Collaboration", span: "" },
 ];
 
 export default function Gallery() {

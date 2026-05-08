@@ -4,13 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TechFest from "../assets/techfest.jpeg"
 import Hackathon from "../assets/hackathon.jpeg"
 import Exhibition from "../assets/exhibition.jpeg"
+import Workshop from "../assets/IMG_9999.jpg.jpeg"
 
 gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   {
     title: "Workshops",
-    backgroundImage: 'https://youngtechies.africa/wp-content/uploads/2023/04/ARM_4723-1.png',
+    backgroundImage: Workshop,
     color: "#0077FF",
     glow: "rgba(0, 119, 255, 0.1)",
   },
