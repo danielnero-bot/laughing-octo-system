@@ -1,17 +1,21 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Festival from "../assets/IMG_9972.jpg.jpeg"
+import Workshop from "../assets/IMG_9999.jpg.jpeg"
+import TechDemo from "../assets/IMG_9960.jpg.jpeg"
+import Innovators from "../assets/IMG_9957.jpg.jpeg"
+import Collaboration from "../assets/IMG_9971.jpg.jpeg"
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 const photos = [
-  { src: "../assets/IMG_9972.jpg.jpeg", alt: "Festival atmosphere", span: "col-span-2 row-span-2" },
-  { src: "../assets/IMG_9972.jpg.jpeg", alt: "Hands-on workshop", span: "" },
-  { src: "../assets/IMG_9999.jpg.jpeg", alt: "Robotics session", span: "" },
-  { src: "../assets/IMG_9960.jpg.jpeg", alt: "Tech demo", span: "col-span-2" },
-  { src: "../assets/IMG_9957.jpg.jpeg", alt: "Innovators at work", span: "" },
-  { src: "../assets/IMG_9971.jpg.jpeg", alt: "Collaboration", span: "" },
+  { src: Festival, alt: "Festival atmosphere", span: "col-span-2 row-span-2" },
+  { src: Workshop, alt: "Hands-on workshop", span: "" },
+  { src: TechDemo, alt: "Tech demo", span: "col-span-2" },
+  { src: Innovators, alt: "Innovators at work", span: "" },
+  { src: Collaboration, alt: "Collaboration", span: "" },
 ];
 
 export default function Gallery() {
