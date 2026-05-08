@@ -1,12 +1,23 @@
 @import "tailwindcss";
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('/src/assets/fonts/BaruSansDemo-Black.woff') format('woff');
+  src: url('/src/assets/fonts/RationalDisplayDEMO-Light.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap; /* prevents invisible text while loading */
 }
-
+@font-face {
+  font-family: "MyCustomFont2";
+  src: url('/src/assets/fonts/BaruSansDemo-Black.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'MyCustomFont2', sans-serif;
+  margin: 0;
+  line-height: 1.2;
+}
 body {
   font-family: 'MyCustomFont', sans-serif;
 }
@@ -54,6 +65,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.5s ease, color 0.5s ease;
+
   }
 
   :root.dark {
