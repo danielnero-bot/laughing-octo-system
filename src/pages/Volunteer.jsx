@@ -246,7 +246,6 @@ const Volunteer = () => {
                   <option value="">Select Gender</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
-                  <option value="Other">Other / Prefer not to say</option>
                 </select>
 
                 <input
