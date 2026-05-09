@@ -146,7 +146,7 @@ const Volunteer = () => {
         </h1>
 
         <p className="text-lg max-w-2xl mx-auto mb-12">
-          Join the Young Techies Festival volunteer team and help us create an amazing experience.
+          Join the Young Techies Festival volunteers team and help us create an amazing experience.
         </p>
 
         <div className="hero-buttons flex items-center justify-center gap-6">
