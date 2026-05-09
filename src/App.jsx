@@ -115,6 +115,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home onRegisterClick={() => setIsRegisterOpen(true)} />} />
           <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/volunteers" element={<Volunteer />} />
           <Route path="/register" element={<Register />} />
           <Route path="/sponsor" element={<Sponsorship />} />
           <Route path="/newsletter" element={<Newsletter />} />
