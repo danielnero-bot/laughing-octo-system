@@ -140,10 +140,10 @@ const Volunteer = () => {
       {/* HERO */}
       <section ref={heroRef} className="container mx-auto px-6 text-center mb-24 mt-12">
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-8">
+        <span className="text-5xl md:text-7xl font-bold mb-8">
           Shape the Future <br />
           <span className="text-primary italic">Together.</span>
-        </h1>
+        </span>
 
         <p className="text-lg max-w-2xl mx-auto mb-12">
           Join the Young Techies Festival volunteer team and help us create an amazing experience.
