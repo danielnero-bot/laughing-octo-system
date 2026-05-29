@@ -59,7 +59,7 @@ export default function Gallery() {
         </div>
 
         <div className="flex justify-center mt-12 sm:mt-16">
-          <a href="https://www.instagram.com/youngtechiesafrica" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-[var(--stat-card-border)] text-[var(--text-muted)] hover:text-primary hover:border-primary/30 text-sm font-bold transition-all duration-300 shadow-sm hover:shadow-md bg-[var(--bg-main)]">
+          <a href="https://www.instagram.com/youngtechiesfestival" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-[var(--stat-card-border)] text-[var(--text-muted)] hover:text-primary hover:border-primary/30 text-sm font-bold transition-all duration-300 shadow-sm hover:shadow-md bg-[var(--bg-main)]">
             Explore More on Instagram
             <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>

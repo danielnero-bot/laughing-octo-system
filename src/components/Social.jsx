@@ -13,7 +13,7 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const socials = [
-  { platform: "Instagram", handle: "@youngtechiesafrica", href: "https://www.instagram.com/codeambassadors", Icon: FaInstagram, color: "#E1306C", glow: "rgba(225,48,108,0.12)", desc: "Behind-the-scenes, highlights & reels from every festival.", followers: "1K+" },
+  { platform: "Instagram", handle: "@youngtechiesafrica", href: "https://www.instagram.com/youngtechiesfestival", Icon: FaInstagram, color: "#E1306C", glow: "rgba(225,48,108,0.12)", desc: "Behind-the-scenes, highlights & reels from every festival.", followers: "1K+" },
   { platform: "TikTok", handle: "@codeambassadors", href: "https://www.tiktok.com/@codeambassadors", Icon: FaTiktok, color: "var(--color-social-tiktok)", glow: "var(--color-social-tiktok)", desc: "Short-form tech content, clips & trending moments.", followers: "1K+" },
   { platform: "X / Twitter", handle: "@codeambassadors", href: "https://x.com/codeambassadors", Icon: FaXTwitter, color: "var(--color-social-x)", glow: "var(--color-social-x)", desc: "Live updates, tech threads & festival announcements.", followers: "100+" },
   { platform: "Facebook", handle: "Code Ambassadors", href: "https://www.facebook.com/codeambassadors", Icon: FaFacebook, color: "#1877F2", glow: "rgba(24,119,242,0.12)", desc: "Community posts, event details & parent updates.", followers: "100+" },
