@@ -27,10 +27,10 @@ const Hackathon = () => {
   }, []);
 
   const features = [
-    { icon: <FaLaptopCode size={32}/>, title: '48 Hours to Build', desc: 'Transform your idea into a working prototype alongside Africa\'s brightest young minds.' },
-    { icon: <FaUsers size={32}/>, title: 'Expert Mentorship', desc: 'Get guidance from seasoned engineers from top tech companies throughout the event.' },
-    { icon: <FaTrophy size={32}/>, title: 'Win Big', desc: 'Compete for cash prizes, internship opportunities, and continuous support for your project.' },
-    { icon: <FaRocket size={32}/>, title: 'Launch Your Career', desc: 'The perfect stage to showcase your talent to recruiters and fast-track your journey.' },
+    { icon: <FaLaptopCode size={32}/>, title: 'Build & Innovate', desc: 'Turn your boldest idea into a working product. Hands-on experience that goes beyond the classroom.' },
+    { icon: <FaUsers size={32}/>, title: 'Learn from the Best', desc: 'Get mentored by industry professionals and passionate educators who believe in the next generation of tech talent.' },
+    { icon: <FaTrophy size={32}/>, title: 'Compete & Win', desc: 'Showcase your skills on a big stage and walk away with prizes, recognition, and real-world opportunities.' },
+    { icon: <FaRocket size={32}/>, title: 'Shape Your Future', desc: 'Connect with peers, mentors, and companies who are ready to invest in where your journey takes you next.' },
   ];
 
   return (
@@ -45,13 +45,13 @@ const Hackathon = () => {
             <FaLaptopCode size={28} />
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight stagger-anim text-(--text-main)">
-            The Ultimate <span className="bg-linear-to-r from-primary to-accent-pink bg-clip-text text-transparent">Hackathon</span>
+            Young <span className="bg-linear-to-r from-primary to-accent-pink bg-clip-text text-transparent">Techies</span> Festival
           </h1>
           <p className="text-xl text-(--text-muted) max-w-2xl mx-auto mb-10 stagger-anim font-light leading-relaxed">
-            Join innovative builders for a sleepless weekend of code, creativity, and career-changing opportunities. Do you have what it takes?
+            A celebration of young innovators coming together to learn, build, and compete. Your ideas have the power to change the world — this is where it starts.
           </p>
           <div className="stagger-anim">
-            <Link to="/register" className="inline-block px-10 py-5 rounded-full bg-primary hover:bg-secondary text-white font-bold tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(0,119,255,0.4)] hover:shadow-[0_0_30px_rgba(0,119,255,0.6)] hover:-translate-y-1">
+            <Link to="https://forms.gle/CBSaHQid3N5jWEdX7" target="_blank" className="inline-block px-10 py-5 rounded-full bg-primary hover:bg-secondary text-white font-bold tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(0,119,255,0.4)] hover:shadow-[0_0_30px_rgba(0,119,255,0.6)] hover:-translate-y-1">
               Apply to Hack
             </Link>
           </div>

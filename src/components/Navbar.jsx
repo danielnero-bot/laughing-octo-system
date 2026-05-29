@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import ThemeToggle from './ThemeToggle';
 import brandLogo from "../assets/YTF Logo-1.png";
@@ -20,6 +19,7 @@ const CardNav = ({
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
+  const gsapRef = useRef(null);
 
   const calculateHeight = () => {
     const navEl = navRef.current;
@@ -56,7 +56,7 @@ const CardNav = ({
     return 260;
   };
 
-  const createTimeline = () => {
+  const createTimeline = (gsap) => {
     const navEl = navRef.current;
     if (!navEl) return null;
 
@@ -77,10 +77,28 @@ const CardNav = ({
   };
 
   useLayoutEffect(() => {
-    const tl = createTimeline();
-    tlRef.current = tl;
+    let cancelled = false;
+    let tl = null;
+
+    async function initAnimation() {
+      if (gsapRef.current) {
+        tl = createTimeline(gsapRef.current);
+        tlRef.current = tl;
+        return;
+      }
+
+      const gsapModule = await import('gsap');
+      if (cancelled) return;
+
+      gsapRef.current = gsapModule.gsap;
+      tl = createTimeline(gsapRef.current);
+      tlRef.current = tl;
+    }
+
+    initAnimation();
 
     return () => {
+      cancelled = true;
       tl?.kill();
       tlRef.current = null;
     };
@@ -89,21 +107,22 @@ const CardNav = ({
 
   useLayoutEffect(() => {
     const handleResize = () => {
-      if (!tlRef.current) return;
+      const gsap = gsapRef.current;
+      if (!tlRef.current || !gsap) return;
 
       if (isExpanded) {
         const newHeight = calculateHeight();
         gsap.set(navRef.current, { height: newHeight });
 
         tlRef.current.kill();
-        const newTl = createTimeline();
+        const newTl = createTimeline(gsap);
         if (newTl) {
           newTl.progress(1);
           tlRef.current = newTl;
         }
       } else {
         tlRef.current.kill();
-        const newTl = createTimeline();
+        const newTl = createTimeline(gsap);
         if (newTl) {
           tlRef.current = newTl;
         }

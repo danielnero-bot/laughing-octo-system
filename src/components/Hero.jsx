@@ -1,11 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Countdown from './countdown';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/IMG_9972.jpg.jpeg';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero({ onRegisterClick }) {
   const containerRef = useRef(null);
@@ -18,79 +14,90 @@ export default function Hero({ onRegisterClick }) {
   const bgRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    let ctx;
+    let cancelled = false;
 
-      // ── ENTRANCE TIMELINE ──
-      const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    async function initializeAnimation() {
+      const gsapModule = await import('gsap');
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      if (cancelled) return;
 
-      tl.fromTo(title1Ref.current,
-        { y: 80, opacity: 0, filter: 'blur(12px)' },
-        { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.4 },
-        0.2
-      );
-      tl.fromTo(title2Ref.current,
-        { y: 60, opacity: 0, filter: 'blur(8px)' },
-        { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.2 },
-        0.5
-      );
-      tl.fromTo(descRef.current,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-        0.8
-      );
-      tl.fromTo(buttonsRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.9, ease: 'back.out(1.7)' },
-        1.0
-      );
-      tl.fromTo(countdownRef.current,
-        { y: 40, opacity: 0, scale: 0.96 },
-        { y: 0, opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.4)' },
-        0.6
-      );
+      const gsap = gsapModule.gsap;
+      gsap.registerPlugin(ScrollTrigger);
 
-      // ── PARALLAX BACKGROUND on scroll ──
-      gsap.to(bgRef.current, {
-        yPercent: 25,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
-      // ── HERO CONTENT FADE OUT on scroll ──
-      gsap.to('.hero-content', {
-        y: -60,
-        opacity: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'center top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
+        tl.fromTo(title1Ref.current,
+          { y: 80, opacity: 0, filter: 'blur(12px)' },
+          { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.4 },
+          0.2
+        );
+        tl.fromTo(title2Ref.current,
+          { y: 60, opacity: 0, filter: 'blur(8px)' },
+          { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.2 },
+          0.5
+        );
+        tl.fromTo(descRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+          0.8
+        );
+        tl.fromTo(buttonsRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.9, ease: 'back.out(1.7)' },
+          1.0
+        );
+        tl.fromTo(countdownRef.current,
+          { y: 40, opacity: 0, scale: 0.96 },
+          { y: 0, opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.4)' },
+          0.6
+        );
 
-      // ── FLOATING BLOBS ──
-      shapesRef.current.forEach((shape, i) => {
-        if (!shape) return;
-        gsap.to(shape, {
-          y: 'random(-50, 50)',
-          x: 'random(-30, 30)',
-          duration: 'random(5, 10)',
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          delay: i * 0.8,
+        gsap.to(bgRef.current, {
+          yPercent: 25,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
         });
-      });
 
-    }, containerRef);
+        gsap.to('.hero-content', {
+          y: -60,
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'center top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
 
-    return () => ctx.revert();
+        shapesRef.current.forEach((shape, i) => {
+          if (!shape) return;
+          gsap.to(shape, {
+            y: 'random(-50, 50)',
+            x: 'random(-30, 30)',
+            duration: 'random(5, 10)',
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: i * 0.8,
+          });
+        });
+      }, containerRef);
+    }
+
+    initializeAnimation();
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (

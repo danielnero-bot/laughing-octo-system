@@ -1,32 +1,36 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
-import AboutFestival from "./components/aboutUs"
+const AboutFestival = lazy(() => import("./components/aboutUs"));
 import RegisterModal from "./components/register"
-import Sponsor from "./components/sponsor"
-import WhyCome from "./components/whycome"
-import Gallery from "./components/Gallery"
-import TechTalks from "./components/TechTalks"
-import Social from "./components/Social"
-import Volunteer from "./pages/Volunteer"
-import Register from "./pages/Register"
-import Sponsorship from "./pages/Sponsorship"
-import Newsletter from "./pages/newsletter"
-import NewsletterSection from "./components/NewsletterSection"
-import Hackathon from "./pages/hackathon"
 import { FaArrowUp } from "react-icons/fa";
+
+const WhyCome = lazy(() => import("./components/whycome"));
+const Gallery = lazy(() => import("./components/Gallery"));
+const TechTalks = lazy(() => import("./components/TechTalks"));
+const Social = lazy(() => import("./components/Social"));
+const Sponsor = lazy(() => import("./components/sponsor"));
+const NewsletterSection = lazy(() => import("./components/NewsletterSection"));
+
+const Volunteer = lazy(() => import("./pages/Volunteer"));
+const Register = lazy(() => import("./pages/Register"));
+const Sponsorship = lazy(() => import("./pages/Sponsorship"));
+const Newsletter = lazy(() => import("./pages/newsletter"));
+const Hackathon = lazy(() => import("./pages/hackathon"));
 
 const Home = ({ onRegisterClick }) => (
   <>
     <Hero onRegisterClick={onRegisterClick} />
-    <AboutFestival />
-    <WhyCome onRegisterClick={onRegisterClick} />
-    <Gallery />
-    <TechTalks />
-    <Social />
-    <Sponsor />
-    <NewsletterSection />
+    <Suspense fallback={<div className="py-24" />}>
+      <AboutFestival />
+      <WhyCome onRegisterClick={onRegisterClick} />
+      <Gallery />
+      <TechTalks />
+      <Social />
+      <Sponsor />
+      <NewsletterSection />
+    </Suspense>
   </>
 );
 
@@ -112,15 +116,17 @@ export default function App() {
       />
 
       <main>
-        <Routes>
-          <Route path="/" element={<Home onRegisterClick={() => setIsRegisterOpen(true)} />} />
-          <Route path="/volunteer" element={<Volunteer />} />
-          <Route path="/volunteers" element={<Volunteer />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/sponsor" element={<Sponsorship />} />
-          <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/hackathon" element={<Hackathon />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen grid place-items-center text-sm text-slate-500">Loading content…</div>}>
+          <Routes>
+            <Route path="/" element={<Home onRegisterClick={() => setIsRegisterOpen(true)} />} />
+            <Route path="/volunteer" element={<Volunteer />} />
+            <Route path="/volunteers" element={<Volunteer />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/sponsor" element={<Sponsorship />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/hackathon" element={<Hackathon />} />
+          </Routes>
+        </Suspense>
       </main>
 
       <RegisterModal 
