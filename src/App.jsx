@@ -2,17 +2,17 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect, Suspense, lazy } from "react";
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
-const AboutFestival = lazy(() => import("./components/aboutUs"));
 import RegisterModal from "./components/register"
 import { FaArrowUp } from "react-icons/fa";
 
+const AboutFestival = lazy(() => import("./components/aboutUs"));
 const WhyCome = lazy(() => import("./components/whycome"));
 const Gallery = lazy(() => import("./components/Gallery"));
 const TechTalks = lazy(() => import("./components/TechTalks"));
 const Social = lazy(() => import("./components/Social"));
 const Sponsor = lazy(() => import("./components/sponsor"));
 const NewsletterSection = lazy(() => import("./components/NewsletterSection"));
-
+const HackathonSection = lazy(() => import("./components/hackathonsection"));
 const Volunteer = lazy(() => import("./pages/Volunteer"));
 const Register = lazy(() => import("./pages/Register"));
 const Sponsorship = lazy(() => import("./pages/Sponsorship"));
@@ -22,7 +22,7 @@ const Hackathon = lazy(() => import("./pages/hackathon"));
 const Home = ({ onRegisterClick }) => (
   <>
     <Hero onRegisterClick={onRegisterClick} />
-    <Suspense fallback={<div className="py-24" />}>
+    <Suspense fallback={<div className="" />}>
       <AboutFestival />
       <WhyCome onRegisterClick={onRegisterClick} />
       <Gallery />
@@ -30,6 +30,7 @@ const Home = ({ onRegisterClick }) => (
       <Social />
       <Sponsor />
       <NewsletterSection />
+      <HackathonSection />
     </Suspense>
   </>
 );
