@@ -170,7 +170,7 @@ export default function Hero({ onRegisterClick }) {
                 <a href='https://www.eventbrite.com/e/young-techies-festival-2026-fifth-edition-tickets-1988912952180?aff=oddtdtcreator' target='_blank' rel='noopener noreferrer' className="relative z-10">Get Your Free Ticket</a>
               </button>
               <button className="px-6 py-3.5 border-2 border-slate-950 text-slate-950 rounded-2xl text-sm sm:text-base bg-white/10 hover:bg-slate-950 hover:text-white transition-all duration-300 font-bold">
-                Learn More
+                <a href="https://forms.gle/CBSaHQid3N5jWEdX7" className="" target="_blank" rel="noopener noreferrer">Apply to Hack</a>
               </button>
             </div>
           </div>

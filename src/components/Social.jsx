@@ -8,6 +8,7 @@ import {
   FaFacebook,
   FaLinkedin,
   FaYoutube,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +20,7 @@ const socials = [
   { platform: "Facebook", handle: "Code Ambassadors", href: "https://www.facebook.com/codeambassadors", Icon: FaFacebook, color: "#1877F2", glow: "rgba(24,119,242,0.12)", desc: "Community posts, event details & parent updates.", followers: "100+" },
   { platform: "LinkedIn", handle: "Code Ambassadors", href: "https://www.linkedin.com/company/codeambassadors", Icon: FaLinkedin, color: "#0A66C2", glow: "rgba(10,102,194,0.12)", desc: "Professional updates, partnership & impact stories.", followers: "600+" },
   { platform: "YouTube", handle: "Code Ambassadors", href: "https://www.youtube.com/@codeambassadors", Icon: FaYoutube, color: "#FF0000", glow: "rgba(255,0,0,0.12)", desc: "Full talk recordings, tutorials & festival replays.", followers: "300+" },
+  
 ];
 
 const hashtags = ["#YoungTechiesFestival", "#YTF2026", "#AfricaTech", "#FutureBuilders"];
@@ -115,6 +117,37 @@ export default function Social() {
                 {tag}
               </span>
             ))}
+          </div>
+        </div>
+
+        <div className="my-16 p-8 sm:p-12 rounded-[2.5rem] bg-gradient-to-br from-green-500/10 to-emerald-500/5 border border-green-500/30 overflow-hidden">
+          <div className="flex flex-col sm:flex-row items-center gap-8 justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-green-500/20 border border-green-500/40">
+                  <FaWhatsapp size={24} className="text-green-500" />
+                </div>
+                <p className="text-sm font-black uppercase tracking-widest text-green-500">Join Our Community</p>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-black text-(--text-main) mb-3 transition-colors duration-500">
+                Connect on WhatsApp
+              </h3>
+              <p className="text-(--text-muted) text-base leading-relaxed font-light max-w-md transition-colors duration-500">
+                Get real-time updates, exclusive announcements, and direct access to the Young Techies community. Join thousands of tech enthusiasts building the future together.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <a
+                href="https://chat.whatsapp.com/IQs2nohI4byIw0LxeFCy42"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-green-500 text-white font-bold transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 hover:scale-105 active:scale-95"
+              >
+                <FaWhatsapp size={20} />
+                <span>Join Now</span>
+                <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
           </div>
         </div>
 
