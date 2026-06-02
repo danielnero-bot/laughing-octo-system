@@ -15,7 +15,7 @@ export default function HackathonSection() {
 						Build. Ship. Win.
 					</h2>
 					<p className="text-(--text-muted) max-w-2xl mx-auto font-light">
-						Join our 24-hour hackathon to prototype ideas, collaborate with peers, and compete for exciting prizes. Students, early-stage founders and makers are all welcome.
+						Submit your innovative ideas that solve real-world problems. No time limits, no teams required—just bring your creativity and make an impact. Students, early-stage founders and makers are all welcome.
 					</p>
 				</div>
 
@@ -23,9 +23,9 @@ export default function HackathonSection() {
 					<div className="p-6 rounded-2xl bg-(--section-alt-bg) border border-(--stat-card-border) text-(--text-main)">
 						<div className="flex items-center gap-3 mb-3">
 							<FaClock size={20} className="text-primary" />
-							<h3 className="font-bold">When</h3>
+							<h3 className="font-bold">How It Works</h3>
 						</div>
-						<p className="text-(--text-muted)">July 11, 2026 · 24 hours</p>
+						<p className="text-(--text-muted)">Submit ideas that solve problems. No time constraints—innovate at your pace.</p>
 					</div>
 
 					<div className="p-6 rounded-2xl bg-(--section-alt-bg) border border-(--stat-card-border) text-(--text-main)">
@@ -33,7 +33,7 @@ export default function HackathonSection() {
 							<FaUsers size={20} className="text-primary" />
 							<h3 className="font-bold">Who</h3>
 						</div>
-						<p className="text-(--text-muted)">Teams of up to 4 — students, mentors and makers welcome.</p>
+						<p className="text-(--text-muted)">Solo participants — students, mentors and makers welcome. Individual submissions only.</p>
 					</div>
 
 					<div className="p-6 rounded-2xl bg-(--section-alt-bg) border border-(--stat-card-border) text-(--text-main)">
@@ -47,8 +47,8 @@ export default function HackathonSection() {
 
 				<div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-[2rem] bg-gradient-to-r from-primary/6 to-accent-pink/4 border border-(--stat-card-border)">
 					<div className="flex-1">
-						<h4 className="text-xl font-black text-(--text-main) mb-2">Ready to compete?</h4>
-						<p className="text-(--text-muted) max-w-xl">Register your team by filling the short form. We use this to share updates, team confirmations, and hackathon logistics.</p>
+						<h4 className="text-xl font-black text-(--text-main) mb-2">Ready to submit your idea?</h4>
+						<p className="text-(--text-muted) max-w-xl">Share your innovative solution by filling the short form. We'll use this to keep you updated and showcase the best ideas.</p>
 					</div>
 
 					<div className="flex-shrink-0">
