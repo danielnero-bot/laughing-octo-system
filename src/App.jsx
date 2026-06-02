@@ -24,13 +24,13 @@ const Home = ({ onRegisterClick }) => (
     <Hero onRegisterClick={onRegisterClick} />
     <Suspense fallback={<div className="" />}>
       <AboutFestival />
+      <HackathonSection />
       <WhyCome onRegisterClick={onRegisterClick} />
       <Gallery />
       <TechTalks />
       <Social />
       <Sponsor />
       <NewsletterSection />
-      <HackathonSection />
     </Suspense>
   </>
 );
